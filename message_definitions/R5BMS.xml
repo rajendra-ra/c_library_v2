@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+<mavlink>
+	<version>3</version>
+	<include>minimal.xml</include>
+	<messages>
+		<message id="11069" name="BMS_AUX_DATA">
+			<description>Data from auxillary microcontroller and BMS microcontroller</description>
+			<field name="aux_current" type="uint16">aux_battery_current</field>
+			<field name="aux_voltage" type="uint16">aux_battery_voltage</field>
+			<field name="BMS_current1" type="uint16">BMS_mux_current1</field>
+			<field name="BMS_current2" type="uint16">BMS_mux_current2</field>
+			<field name="BMS_current3" type="uint16">BMS_mux_current3</field>
+			<field name="BMS_voltage" type="uint16">BMS_mux_voltage</field>
+			<field name="BMS_temperature1" type="uint16">BMS_mux_temperature1</field>
+			<field name="BMS_temperature2" type="uint16">BMS_mux_temperature2</field>
+			<field name="BMS_temperature3" type="uint16">BMS_mux_temperature3</field>
+		    <field name="BMS_temperature4" type="uint16">BMS_mux_temperature4</field>
+			<field name="BMS_cout" type="uint16">BMS_ic_cout</field>
+			<field name="BMS_dout" type="uint16">BMS_ic_dout</field>
+			
+		</message>
+		<message id="11071" name="TOP_MID_PCB_DATA">
+			<description>Data from top and mid pcb controllers microcontroller</description>
+			<field name="battery_voltage" type="uint16">Top_battery_voltage</field>
+			<field name="servo1_current" type="uint16">Top_servo1_current</field>
+			<field name="servo2_current" type="uint16">Top_servo2_current</field>
+			<field name="servo3_current" type="uint16">Top_servo3_current</field>
+			<field name="temp_servo1" type="uint16">Top_servo1_temperature</field>
+			<field name="temp_servo2" type="uint16">Top_servo2_temperature</field>
+			<field name="temp_servo3" type="uint16">Top_servo3_temperature</field>
+			<field name="temp_ambient1" type="uint16">ambient temperature 1</field>
+			<field name="temp_ambient2" type="uint16">ambient temperature 2</field>
+			<field name="mid_servo1_current" type="uint16">mid_servo1_current</field>
+			<field name="mid_servo2_current" type="uint16">mid_servo2_current</field>
+			<field name="mid_servo3_current" type="uint16">mid_servo3_current</field>
+			<field name="mid_temp_servo1" type="uint16">mid_temp_servo1</field>
+			<field name="mid_temp_servo2" type="uint16">mid_temp_servo2</field>
+			<field name="voltage_bec1" type="uint16">voltage_bec1</field>
+			<field name="voltage_bec2" type="uint16">voltage_bec2</field>
+			<field name="voltage_buck" type="uint16">voltage_buck</field>
+			<field name="Temp_servo3" type="uint16">Temp_servo3</field>
+
+		</message>
+	</messages>
+</mavlink>
