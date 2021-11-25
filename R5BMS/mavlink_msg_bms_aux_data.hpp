@@ -13,9 +13,9 @@ namespace msg {
  */
 struct BMS_AUX_DATA : mavlink::Message {
     static constexpr msgid_t MSG_ID = 11069;
-    static constexpr size_t LENGTH = 24;
-    static constexpr size_t MIN_LENGTH = 24;
-    static constexpr uint8_t CRC_EXTRA = 162;
+    static constexpr size_t LENGTH = 26;
+    static constexpr size_t MIN_LENGTH = 26;
+    static constexpr uint8_t CRC_EXTRA = 5;
     static constexpr auto NAME = "BMS_AUX_DATA";
 
 
@@ -31,6 +31,7 @@ struct BMS_AUX_DATA : mavlink::Message {
     uint16_t BMS_temperature4; /*<  BMS_mux_temperature4 */
     uint16_t BMS_cout; /*<  BMS_ic_cout */
     uint16_t BMS_dout; /*<  BMS_ic_dout */
+    int16_t Wind_velocity; /*<  Wind velocity in m/s(scale =100) */
 
 
     inline std::string get_name(void) const override
@@ -60,6 +61,7 @@ struct BMS_AUX_DATA : mavlink::Message {
         ss << "  BMS_temperature4: " << BMS_temperature4 << std::endl;
         ss << "  BMS_cout: " << BMS_cout << std::endl;
         ss << "  BMS_dout: " << BMS_dout << std::endl;
+        ss << "  Wind_velocity: " << Wind_velocity << std::endl;
 
         return ss.str();
     }
@@ -80,6 +82,7 @@ struct BMS_AUX_DATA : mavlink::Message {
         map << BMS_temperature4;              // offset: 18
         map << BMS_cout;                      // offset: 20
         map << BMS_dout;                      // offset: 22
+        map << Wind_velocity;                 // offset: 24
     }
 
     inline void deserialize(mavlink::MsgMap &map) override
@@ -96,6 +99,7 @@ struct BMS_AUX_DATA : mavlink::Message {
         map >> BMS_temperature4;              // offset: 18
         map >> BMS_cout;                      // offset: 20
         map >> BMS_dout;                      // offset: 22
+        map >> Wind_velocity;                 // offset: 24
     }
 };
 

@@ -34,6 +34,7 @@ TEST(R5BMS, BMS_AUX_DATA)
     packet_in.BMS_temperature4 = 18171;
     packet_in.BMS_cout = 18275;
     packet_in.BMS_dout = 18379;
+    packet_in.Wind_velocity = 18483;
 
     mavlink::R5BMS::msg::BMS_AUX_DATA packet1{};
     mavlink::R5BMS::msg::BMS_AUX_DATA packet2{};
@@ -60,6 +61,7 @@ TEST(R5BMS, BMS_AUX_DATA)
     EXPECT_EQ(packet1.BMS_temperature4, packet2.BMS_temperature4);
     EXPECT_EQ(packet1.BMS_cout, packet2.BMS_cout);
     EXPECT_EQ(packet1.BMS_dout, packet2.BMS_dout);
+    EXPECT_EQ(packet1.Wind_velocity, packet2.Wind_velocity);
 }
 
 #ifdef TEST_INTEROP
@@ -71,7 +73,7 @@ TEST(R5BMS_interop, BMS_AUX_DATA)
     memset(&msg, 0, sizeof(msg));
 
     mavlink_bms_aux_data_t packet_c {
-         17235, 17339, 17443, 17547, 17651, 17755, 17859, 17963, 18067, 18171, 18275, 18379
+         17235, 17339, 17443, 17547, 17651, 17755, 17859, 17963, 18067, 18171, 18275, 18379, 18483
     };
 
     mavlink::R5BMS::msg::BMS_AUX_DATA packet_in{};
@@ -87,6 +89,7 @@ TEST(R5BMS_interop, BMS_AUX_DATA)
     packet_in.BMS_temperature4 = 18171;
     packet_in.BMS_cout = 18275;
     packet_in.BMS_dout = 18379;
+    packet_in.Wind_velocity = 18483;
 
     mavlink::R5BMS::msg::BMS_AUX_DATA packet2{};
 
@@ -111,6 +114,7 @@ TEST(R5BMS_interop, BMS_AUX_DATA)
     EXPECT_EQ(packet_in.BMS_temperature4, packet2.BMS_temperature4);
     EXPECT_EQ(packet_in.BMS_cout, packet2.BMS_cout);
     EXPECT_EQ(packet_in.BMS_dout, packet2.BMS_dout);
+    EXPECT_EQ(packet_in.Wind_velocity, packet2.Wind_velocity);
 
 #ifdef PRINT_MSG
     PRINT_MSG(msg);
