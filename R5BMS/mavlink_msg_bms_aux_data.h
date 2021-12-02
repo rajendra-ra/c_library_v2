@@ -17,16 +17,17 @@ typedef struct __mavlink_bms_aux_data_t {
  uint16_t BMS_temperature4; /*<  BMS_mux_temperature4*/
  uint16_t BMS_cout; /*<  BMS_ic_cout*/
  uint16_t BMS_dout; /*<  BMS_ic_dout*/
- int16_t Wind_velocity; /*<  Wind velocity in m/s(scale =100)*/
+ uint16_t Motor2_temp; /*<  Temperature of Motor 2*/
+ uint16_t Motor1_temp; /*<  Temperature of Motor 1*/
 } mavlink_bms_aux_data_t;
 
-#define MAVLINK_MSG_ID_BMS_AUX_DATA_LEN 26
-#define MAVLINK_MSG_ID_BMS_AUX_DATA_MIN_LEN 26
-#define MAVLINK_MSG_ID_11069_LEN 26
-#define MAVLINK_MSG_ID_11069_MIN_LEN 26
+#define MAVLINK_MSG_ID_BMS_AUX_DATA_LEN 28
+#define MAVLINK_MSG_ID_BMS_AUX_DATA_MIN_LEN 28
+#define MAVLINK_MSG_ID_11069_LEN 28
+#define MAVLINK_MSG_ID_11069_MIN_LEN 28
 
-#define MAVLINK_MSG_ID_BMS_AUX_DATA_CRC 5
-#define MAVLINK_MSG_ID_11069_CRC 5
+#define MAVLINK_MSG_ID_BMS_AUX_DATA_CRC 79
+#define MAVLINK_MSG_ID_11069_CRC 79
 
 
 
@@ -34,7 +35,7 @@ typedef struct __mavlink_bms_aux_data_t {
 #define MAVLINK_MESSAGE_INFO_BMS_AUX_DATA { \
     11069, \
     "BMS_AUX_DATA", \
-    13, \
+    14, \
     {  { "aux_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_bms_aux_data_t, aux_current) }, \
          { "aux_voltage", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_bms_aux_data_t, aux_voltage) }, \
          { "BMS_current1", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_bms_aux_data_t, BMS_current1) }, \
@@ -47,13 +48,14 @@ typedef struct __mavlink_bms_aux_data_t {
          { "BMS_temperature4", NULL, MAVLINK_TYPE_UINT16_T, 0, 18, offsetof(mavlink_bms_aux_data_t, BMS_temperature4) }, \
          { "BMS_cout", NULL, MAVLINK_TYPE_UINT16_T, 0, 20, offsetof(mavlink_bms_aux_data_t, BMS_cout) }, \
          { "BMS_dout", NULL, MAVLINK_TYPE_UINT16_T, 0, 22, offsetof(mavlink_bms_aux_data_t, BMS_dout) }, \
-         { "Wind_velocity", NULL, MAVLINK_TYPE_INT16_T, 0, 24, offsetof(mavlink_bms_aux_data_t, Wind_velocity) }, \
+         { "Motor2_temp", NULL, MAVLINK_TYPE_UINT16_T, 0, 24, offsetof(mavlink_bms_aux_data_t, Motor2_temp) }, \
+         { "Motor1_temp", NULL, MAVLINK_TYPE_UINT16_T, 0, 26, offsetof(mavlink_bms_aux_data_t, Motor1_temp) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_BMS_AUX_DATA { \
     "BMS_AUX_DATA", \
-    13, \
+    14, \
     {  { "aux_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_bms_aux_data_t, aux_current) }, \
          { "aux_voltage", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_bms_aux_data_t, aux_voltage) }, \
          { "BMS_current1", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_bms_aux_data_t, BMS_current1) }, \
@@ -66,7 +68,8 @@ typedef struct __mavlink_bms_aux_data_t {
          { "BMS_temperature4", NULL, MAVLINK_TYPE_UINT16_T, 0, 18, offsetof(mavlink_bms_aux_data_t, BMS_temperature4) }, \
          { "BMS_cout", NULL, MAVLINK_TYPE_UINT16_T, 0, 20, offsetof(mavlink_bms_aux_data_t, BMS_cout) }, \
          { "BMS_dout", NULL, MAVLINK_TYPE_UINT16_T, 0, 22, offsetof(mavlink_bms_aux_data_t, BMS_dout) }, \
-         { "Wind_velocity", NULL, MAVLINK_TYPE_INT16_T, 0, 24, offsetof(mavlink_bms_aux_data_t, Wind_velocity) }, \
+         { "Motor2_temp", NULL, MAVLINK_TYPE_UINT16_T, 0, 24, offsetof(mavlink_bms_aux_data_t, Motor2_temp) }, \
+         { "Motor1_temp", NULL, MAVLINK_TYPE_UINT16_T, 0, 26, offsetof(mavlink_bms_aux_data_t, Motor1_temp) }, \
          } \
 }
 #endif
@@ -89,11 +92,12 @@ typedef struct __mavlink_bms_aux_data_t {
  * @param BMS_temperature4  BMS_mux_temperature4
  * @param BMS_cout  BMS_ic_cout
  * @param BMS_dout  BMS_ic_dout
- * @param Wind_velocity  Wind velocity in m/s(scale =100)
+ * @param Motor2_temp  Temperature of Motor 2
+ * @param Motor1_temp  Temperature of Motor 1
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_bms_aux_data_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint16_t aux_current, uint16_t aux_voltage, uint16_t BMS_current1, uint16_t BMS_current2, uint16_t BMS_current3, uint16_t BMS_voltage, uint16_t BMS_temperature1, uint16_t BMS_temperature2, uint16_t BMS_temperature3, uint16_t BMS_temperature4, uint16_t BMS_cout, uint16_t BMS_dout, int16_t Wind_velocity)
+                               uint16_t aux_current, uint16_t aux_voltage, uint16_t BMS_current1, uint16_t BMS_current2, uint16_t BMS_current3, uint16_t BMS_voltage, uint16_t BMS_temperature1, uint16_t BMS_temperature2, uint16_t BMS_temperature3, uint16_t BMS_temperature4, uint16_t BMS_cout, uint16_t BMS_dout, uint16_t Motor2_temp, uint16_t Motor1_temp)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_BMS_AUX_DATA_LEN];
@@ -109,7 +113,8 @@ static inline uint16_t mavlink_msg_bms_aux_data_pack(uint8_t system_id, uint8_t 
     _mav_put_uint16_t(buf, 18, BMS_temperature4);
     _mav_put_uint16_t(buf, 20, BMS_cout);
     _mav_put_uint16_t(buf, 22, BMS_dout);
-    _mav_put_int16_t(buf, 24, Wind_velocity);
+    _mav_put_uint16_t(buf, 24, Motor2_temp);
+    _mav_put_uint16_t(buf, 26, Motor1_temp);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN);
 #else
@@ -126,7 +131,8 @@ static inline uint16_t mavlink_msg_bms_aux_data_pack(uint8_t system_id, uint8_t 
     packet.BMS_temperature4 = BMS_temperature4;
     packet.BMS_cout = BMS_cout;
     packet.BMS_dout = BMS_dout;
-    packet.Wind_velocity = Wind_velocity;
+    packet.Motor2_temp = Motor2_temp;
+    packet.Motor1_temp = Motor1_temp;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN);
 #endif
@@ -153,12 +159,13 @@ static inline uint16_t mavlink_msg_bms_aux_data_pack(uint8_t system_id, uint8_t 
  * @param BMS_temperature4  BMS_mux_temperature4
  * @param BMS_cout  BMS_ic_cout
  * @param BMS_dout  BMS_ic_dout
- * @param Wind_velocity  Wind velocity in m/s(scale =100)
+ * @param Motor2_temp  Temperature of Motor 2
+ * @param Motor1_temp  Temperature of Motor 1
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_bms_aux_data_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint16_t aux_current,uint16_t aux_voltage,uint16_t BMS_current1,uint16_t BMS_current2,uint16_t BMS_current3,uint16_t BMS_voltage,uint16_t BMS_temperature1,uint16_t BMS_temperature2,uint16_t BMS_temperature3,uint16_t BMS_temperature4,uint16_t BMS_cout,uint16_t BMS_dout,int16_t Wind_velocity)
+                                   uint16_t aux_current,uint16_t aux_voltage,uint16_t BMS_current1,uint16_t BMS_current2,uint16_t BMS_current3,uint16_t BMS_voltage,uint16_t BMS_temperature1,uint16_t BMS_temperature2,uint16_t BMS_temperature3,uint16_t BMS_temperature4,uint16_t BMS_cout,uint16_t BMS_dout,uint16_t Motor2_temp,uint16_t Motor1_temp)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_BMS_AUX_DATA_LEN];
@@ -174,7 +181,8 @@ static inline uint16_t mavlink_msg_bms_aux_data_pack_chan(uint8_t system_id, uin
     _mav_put_uint16_t(buf, 18, BMS_temperature4);
     _mav_put_uint16_t(buf, 20, BMS_cout);
     _mav_put_uint16_t(buf, 22, BMS_dout);
-    _mav_put_int16_t(buf, 24, Wind_velocity);
+    _mav_put_uint16_t(buf, 24, Motor2_temp);
+    _mav_put_uint16_t(buf, 26, Motor1_temp);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN);
 #else
@@ -191,7 +199,8 @@ static inline uint16_t mavlink_msg_bms_aux_data_pack_chan(uint8_t system_id, uin
     packet.BMS_temperature4 = BMS_temperature4;
     packet.BMS_cout = BMS_cout;
     packet.BMS_dout = BMS_dout;
-    packet.Wind_velocity = Wind_velocity;
+    packet.Motor2_temp = Motor2_temp;
+    packet.Motor1_temp = Motor1_temp;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN);
 #endif
@@ -210,7 +219,7 @@ static inline uint16_t mavlink_msg_bms_aux_data_pack_chan(uint8_t system_id, uin
  */
 static inline uint16_t mavlink_msg_bms_aux_data_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_bms_aux_data_t* bms_aux_data)
 {
-    return mavlink_msg_bms_aux_data_pack(system_id, component_id, msg, bms_aux_data->aux_current, bms_aux_data->aux_voltage, bms_aux_data->BMS_current1, bms_aux_data->BMS_current2, bms_aux_data->BMS_current3, bms_aux_data->BMS_voltage, bms_aux_data->BMS_temperature1, bms_aux_data->BMS_temperature2, bms_aux_data->BMS_temperature3, bms_aux_data->BMS_temperature4, bms_aux_data->BMS_cout, bms_aux_data->BMS_dout, bms_aux_data->Wind_velocity);
+    return mavlink_msg_bms_aux_data_pack(system_id, component_id, msg, bms_aux_data->aux_current, bms_aux_data->aux_voltage, bms_aux_data->BMS_current1, bms_aux_data->BMS_current2, bms_aux_data->BMS_current3, bms_aux_data->BMS_voltage, bms_aux_data->BMS_temperature1, bms_aux_data->BMS_temperature2, bms_aux_data->BMS_temperature3, bms_aux_data->BMS_temperature4, bms_aux_data->BMS_cout, bms_aux_data->BMS_dout, bms_aux_data->Motor2_temp, bms_aux_data->Motor1_temp);
 }
 
 /**
@@ -224,7 +233,7 @@ static inline uint16_t mavlink_msg_bms_aux_data_encode(uint8_t system_id, uint8_
  */
 static inline uint16_t mavlink_msg_bms_aux_data_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_bms_aux_data_t* bms_aux_data)
 {
-    return mavlink_msg_bms_aux_data_pack_chan(system_id, component_id, chan, msg, bms_aux_data->aux_current, bms_aux_data->aux_voltage, bms_aux_data->BMS_current1, bms_aux_data->BMS_current2, bms_aux_data->BMS_current3, bms_aux_data->BMS_voltage, bms_aux_data->BMS_temperature1, bms_aux_data->BMS_temperature2, bms_aux_data->BMS_temperature3, bms_aux_data->BMS_temperature4, bms_aux_data->BMS_cout, bms_aux_data->BMS_dout, bms_aux_data->Wind_velocity);
+    return mavlink_msg_bms_aux_data_pack_chan(system_id, component_id, chan, msg, bms_aux_data->aux_current, bms_aux_data->aux_voltage, bms_aux_data->BMS_current1, bms_aux_data->BMS_current2, bms_aux_data->BMS_current3, bms_aux_data->BMS_voltage, bms_aux_data->BMS_temperature1, bms_aux_data->BMS_temperature2, bms_aux_data->BMS_temperature3, bms_aux_data->BMS_temperature4, bms_aux_data->BMS_cout, bms_aux_data->BMS_dout, bms_aux_data->Motor2_temp, bms_aux_data->Motor1_temp);
 }
 
 /**
@@ -243,11 +252,12 @@ static inline uint16_t mavlink_msg_bms_aux_data_encode_chan(uint8_t system_id, u
  * @param BMS_temperature4  BMS_mux_temperature4
  * @param BMS_cout  BMS_ic_cout
  * @param BMS_dout  BMS_ic_dout
- * @param Wind_velocity  Wind velocity in m/s(scale =100)
+ * @param Motor2_temp  Temperature of Motor 2
+ * @param Motor1_temp  Temperature of Motor 1
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_bms_aux_data_send(mavlink_channel_t chan, uint16_t aux_current, uint16_t aux_voltage, uint16_t BMS_current1, uint16_t BMS_current2, uint16_t BMS_current3, uint16_t BMS_voltage, uint16_t BMS_temperature1, uint16_t BMS_temperature2, uint16_t BMS_temperature3, uint16_t BMS_temperature4, uint16_t BMS_cout, uint16_t BMS_dout, int16_t Wind_velocity)
+static inline void mavlink_msg_bms_aux_data_send(mavlink_channel_t chan, uint16_t aux_current, uint16_t aux_voltage, uint16_t BMS_current1, uint16_t BMS_current2, uint16_t BMS_current3, uint16_t BMS_voltage, uint16_t BMS_temperature1, uint16_t BMS_temperature2, uint16_t BMS_temperature3, uint16_t BMS_temperature4, uint16_t BMS_cout, uint16_t BMS_dout, uint16_t Motor2_temp, uint16_t Motor1_temp)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_BMS_AUX_DATA_LEN];
@@ -263,7 +273,8 @@ static inline void mavlink_msg_bms_aux_data_send(mavlink_channel_t chan, uint16_
     _mav_put_uint16_t(buf, 18, BMS_temperature4);
     _mav_put_uint16_t(buf, 20, BMS_cout);
     _mav_put_uint16_t(buf, 22, BMS_dout);
-    _mav_put_int16_t(buf, 24, Wind_velocity);
+    _mav_put_uint16_t(buf, 24, Motor2_temp);
+    _mav_put_uint16_t(buf, 26, Motor1_temp);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_BMS_AUX_DATA, buf, MAVLINK_MSG_ID_BMS_AUX_DATA_MIN_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_CRC);
 #else
@@ -280,7 +291,8 @@ static inline void mavlink_msg_bms_aux_data_send(mavlink_channel_t chan, uint16_
     packet.BMS_temperature4 = BMS_temperature4;
     packet.BMS_cout = BMS_cout;
     packet.BMS_dout = BMS_dout;
-    packet.Wind_velocity = Wind_velocity;
+    packet.Motor2_temp = Motor2_temp;
+    packet.Motor1_temp = Motor1_temp;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_BMS_AUX_DATA, (const char *)&packet, MAVLINK_MSG_ID_BMS_AUX_DATA_MIN_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_CRC);
 #endif
@@ -294,7 +306,7 @@ static inline void mavlink_msg_bms_aux_data_send(mavlink_channel_t chan, uint16_
 static inline void mavlink_msg_bms_aux_data_send_struct(mavlink_channel_t chan, const mavlink_bms_aux_data_t* bms_aux_data)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_bms_aux_data_send(chan, bms_aux_data->aux_current, bms_aux_data->aux_voltage, bms_aux_data->BMS_current1, bms_aux_data->BMS_current2, bms_aux_data->BMS_current3, bms_aux_data->BMS_voltage, bms_aux_data->BMS_temperature1, bms_aux_data->BMS_temperature2, bms_aux_data->BMS_temperature3, bms_aux_data->BMS_temperature4, bms_aux_data->BMS_cout, bms_aux_data->BMS_dout, bms_aux_data->Wind_velocity);
+    mavlink_msg_bms_aux_data_send(chan, bms_aux_data->aux_current, bms_aux_data->aux_voltage, bms_aux_data->BMS_current1, bms_aux_data->BMS_current2, bms_aux_data->BMS_current3, bms_aux_data->BMS_voltage, bms_aux_data->BMS_temperature1, bms_aux_data->BMS_temperature2, bms_aux_data->BMS_temperature3, bms_aux_data->BMS_temperature4, bms_aux_data->BMS_cout, bms_aux_data->BMS_dout, bms_aux_data->Motor2_temp, bms_aux_data->Motor1_temp);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_BMS_AUX_DATA, (const char *)bms_aux_data, MAVLINK_MSG_ID_BMS_AUX_DATA_MIN_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_CRC);
 #endif
@@ -308,7 +320,7 @@ static inline void mavlink_msg_bms_aux_data_send_struct(mavlink_channel_t chan, 
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_bms_aux_data_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint16_t aux_current, uint16_t aux_voltage, uint16_t BMS_current1, uint16_t BMS_current2, uint16_t BMS_current3, uint16_t BMS_voltage, uint16_t BMS_temperature1, uint16_t BMS_temperature2, uint16_t BMS_temperature3, uint16_t BMS_temperature4, uint16_t BMS_cout, uint16_t BMS_dout, int16_t Wind_velocity)
+static inline void mavlink_msg_bms_aux_data_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint16_t aux_current, uint16_t aux_voltage, uint16_t BMS_current1, uint16_t BMS_current2, uint16_t BMS_current3, uint16_t BMS_voltage, uint16_t BMS_temperature1, uint16_t BMS_temperature2, uint16_t BMS_temperature3, uint16_t BMS_temperature4, uint16_t BMS_cout, uint16_t BMS_dout, uint16_t Motor2_temp, uint16_t Motor1_temp)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
@@ -324,7 +336,8 @@ static inline void mavlink_msg_bms_aux_data_send_buf(mavlink_message_t *msgbuf, 
     _mav_put_uint16_t(buf, 18, BMS_temperature4);
     _mav_put_uint16_t(buf, 20, BMS_cout);
     _mav_put_uint16_t(buf, 22, BMS_dout);
-    _mav_put_int16_t(buf, 24, Wind_velocity);
+    _mav_put_uint16_t(buf, 24, Motor2_temp);
+    _mav_put_uint16_t(buf, 26, Motor1_temp);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_BMS_AUX_DATA, buf, MAVLINK_MSG_ID_BMS_AUX_DATA_MIN_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_CRC);
 #else
@@ -341,7 +354,8 @@ static inline void mavlink_msg_bms_aux_data_send_buf(mavlink_message_t *msgbuf, 
     packet->BMS_temperature4 = BMS_temperature4;
     packet->BMS_cout = BMS_cout;
     packet->BMS_dout = BMS_dout;
-    packet->Wind_velocity = Wind_velocity;
+    packet->Motor2_temp = Motor2_temp;
+    packet->Motor1_temp = Motor1_temp;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_BMS_AUX_DATA, (const char *)packet, MAVLINK_MSG_ID_BMS_AUX_DATA_MIN_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN, MAVLINK_MSG_ID_BMS_AUX_DATA_CRC);
 #endif
@@ -474,13 +488,23 @@ static inline uint16_t mavlink_msg_bms_aux_data_get_BMS_dout(const mavlink_messa
 }
 
 /**
- * @brief Get field Wind_velocity from bms_aux_data message
+ * @brief Get field Motor2_temp from bms_aux_data message
  *
- * @return  Wind velocity in m/s(scale =100)
+ * @return  Temperature of Motor 2
  */
-static inline int16_t mavlink_msg_bms_aux_data_get_Wind_velocity(const mavlink_message_t* msg)
+static inline uint16_t mavlink_msg_bms_aux_data_get_Motor2_temp(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_int16_t(msg,  24);
+    return _MAV_RETURN_uint16_t(msg,  24);
+}
+
+/**
+ * @brief Get field Motor1_temp from bms_aux_data message
+ *
+ * @return  Temperature of Motor 1
+ */
+static inline uint16_t mavlink_msg_bms_aux_data_get_Motor1_temp(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint16_t(msg,  26);
 }
 
 /**
@@ -504,7 +528,8 @@ static inline void mavlink_msg_bms_aux_data_decode(const mavlink_message_t* msg,
     bms_aux_data->BMS_temperature4 = mavlink_msg_bms_aux_data_get_BMS_temperature4(msg);
     bms_aux_data->BMS_cout = mavlink_msg_bms_aux_data_get_BMS_cout(msg);
     bms_aux_data->BMS_dout = mavlink_msg_bms_aux_data_get_BMS_dout(msg);
-    bms_aux_data->Wind_velocity = mavlink_msg_bms_aux_data_get_Wind_velocity(msg);
+    bms_aux_data->Motor2_temp = mavlink_msg_bms_aux_data_get_Motor2_temp(msg);
+    bms_aux_data->Motor1_temp = mavlink_msg_bms_aux_data_get_Motor1_temp(msg);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_BMS_AUX_DATA_LEN? msg->len : MAVLINK_MSG_ID_BMS_AUX_DATA_LEN;
         memset(bms_aux_data, 0, MAVLINK_MSG_ID_BMS_AUX_DATA_LEN);

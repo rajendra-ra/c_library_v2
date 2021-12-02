@@ -17,7 +17,9 @@
       <field name="BMS_temperature4" type="uint16_t">BMS_mux_temperature4</field>
       <field name="BMS_cout" type="uint16_t">BMS_ic_cout</field>
       <field name="BMS_dout" type="uint16_t">BMS_ic_dout</field>
-      <field name="Wind_velocity" type="int16_t">Wind velocity in m/s(scale =100)</field>
+<!--      <field name="Wind_velocity" type="int16_t">Wind velocity in m/s(scale =100)</field>-->
+      <field name="Motor2_temp" type="uint16_t">Temperature of Motor 2</field>
+      <field name="Motor1_temp" type="uint16_t">Temperature of Motor 1</field>
     </message>
     <message id="11071" name="TOP_MID_PCB_DATA">
       <description>Data from top and mid pcb controllers microcontroller</description>
