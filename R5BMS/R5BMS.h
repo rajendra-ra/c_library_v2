@@ -11,7 +11,7 @@
 #endif
 
 #undef MAVLINK_THIS_XML_IDX
-#define MAVLINK_THIS_XML_IDX 12
+#define MAVLINK_THIS_XML_IDX 4
 
 #ifdef __cplusplus
 extern "C" {
@@ -24,7 +24,7 @@ extern "C" {
 #endif
 
 #ifndef MAVLINK_MESSAGE_CRCS
-#define MAVLINK_MESSAGE_CRCS {{11069, 79, 28, 28, 0, 0, 0}, {11071, 32, 36, 36, 0, 0, 0}}
+#define MAVLINK_MESSAGE_CRCS {{11069, 224, 28, 28, 0, 0, 0}, {11071, 32, 36, 36, 0, 0, 0}}
 #endif
 
 #include "../protocol.h"
@@ -54,7 +54,7 @@ extern "C" {
 
 
 #undef MAVLINK_THIS_XML_IDX
-#define MAVLINK_THIS_XML_IDX 12
+#define MAVLINK_THIS_XML_IDX 4
 
 #if MAVLINK_THIS_XML_IDX == MAVLINK_PRIMARY_XML_IDX
 # define MAVLINK_MESSAGE_INFO {MAVLINK_MESSAGE_INFO_BMS_AUX_DATA, MAVLINK_MESSAGE_INFO_TOP_MID_PCB_DATA}

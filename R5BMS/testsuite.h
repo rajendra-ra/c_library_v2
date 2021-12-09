@@ -53,8 +53,8 @@ static void mavlink_test_bms_aux_data(uint8_t system_id, uint8_t component_id, m
         packet1.BMS_temperature4 = packet_in.BMS_temperature4;
         packet1.BMS_cout = packet_in.BMS_cout;
         packet1.BMS_dout = packet_in.BMS_dout;
-        packet1.Motor2_temp = packet_in.Motor2_temp;
         packet1.Motor1_temp = packet_in.Motor1_temp;
+        packet1.Motor2_temp = packet_in.Motor2_temp;
         
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
@@ -69,12 +69,12 @@ static void mavlink_test_bms_aux_data(uint8_t system_id, uint8_t component_id, m
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_bms_aux_data_pack(system_id, component_id, &msg , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor2_temp , packet1.Motor1_temp );
+    mavlink_msg_bms_aux_data_pack(system_id, component_id, &msg , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor1_temp , packet1.Motor2_temp );
     mavlink_msg_bms_aux_data_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_bms_aux_data_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor2_temp , packet1.Motor1_temp );
+    mavlink_msg_bms_aux_data_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor1_temp , packet1.Motor2_temp );
     mavlink_msg_bms_aux_data_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -87,7 +87,7 @@ static void mavlink_test_bms_aux_data(uint8_t system_id, uint8_t component_id, m
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_bms_aux_data_send(MAVLINK_COMM_1 , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor2_temp , packet1.Motor1_temp );
+    mavlink_msg_bms_aux_data_send(MAVLINK_COMM_1 , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor1_temp , packet1.Motor2_temp );
     mavlink_msg_bms_aux_data_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 }
