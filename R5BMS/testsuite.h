@@ -43,18 +43,18 @@ static void mavlink_test_bms_aux_data(uint8_t system_id, uint8_t component_id, m
         memset(&packet1, 0, sizeof(packet1));
         packet1.aux_current = packet_in.aux_current;
         packet1.aux_voltage = packet_in.aux_voltage;
-        packet1.BMS_current1 = packet_in.BMS_current1;
-        packet1.BMS_current2 = packet_in.BMS_current2;
-        packet1.BMS_current3 = packet_in.BMS_current3;
-        packet1.BMS_voltage = packet_in.BMS_voltage;
-        packet1.BMS_temperature1 = packet_in.BMS_temperature1;
-        packet1.BMS_temperature2 = packet_in.BMS_temperature2;
-        packet1.BMS_temperature3 = packet_in.BMS_temperature3;
-        packet1.BMS_temperature4 = packet_in.BMS_temperature4;
-        packet1.BMS_cout = packet_in.BMS_cout;
-        packet1.BMS_dout = packet_in.BMS_dout;
-        packet1.Motor1_temp = packet_in.Motor1_temp;
-        packet1.Motor2_temp = packet_in.Motor2_temp;
+        packet1.total_current = packet_in.total_current;
+        packet1.total_voltage = packet_in.total_voltage;
+        packet1.esc1_current = packet_in.esc1_current;
+        packet1.esc2_current = packet_in.esc2_current;
+        packet1.bat1_temperature = packet_in.bat1_temperature;
+        packet1.bat2_temperature = packet_in.bat2_temperature;
+        packet1.esc1_temperature = packet_in.esc1_temperature;
+        packet1.esc2_temperature = packet_in.esc2_temperature;
+        packet1.motor1_temperature = packet_in.motor1_temperature;
+        packet1.motor2_temperature = packet_in.motor2_temperature;
+        packet1.errorcode_cout = packet_in.errorcode_cout;
+        packet1.errorcode_dout = packet_in.errorcode_dout;
         
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
@@ -69,12 +69,12 @@ static void mavlink_test_bms_aux_data(uint8_t system_id, uint8_t component_id, m
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_bms_aux_data_pack(system_id, component_id, &msg , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor1_temp , packet1.Motor2_temp );
+    mavlink_msg_bms_aux_data_pack(system_id, component_id, &msg , packet1.aux_current , packet1.aux_voltage , packet1.total_current , packet1.total_voltage , packet1.esc1_current , packet1.esc2_current , packet1.bat1_temperature , packet1.bat2_temperature , packet1.esc1_temperature , packet1.esc2_temperature , packet1.motor1_temperature , packet1.motor2_temperature , packet1.errorcode_cout , packet1.errorcode_dout );
     mavlink_msg_bms_aux_data_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_bms_aux_data_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor1_temp , packet1.Motor2_temp );
+    mavlink_msg_bms_aux_data_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.aux_current , packet1.aux_voltage , packet1.total_current , packet1.total_voltage , packet1.esc1_current , packet1.esc2_current , packet1.bat1_temperature , packet1.bat2_temperature , packet1.esc1_temperature , packet1.esc2_temperature , packet1.motor1_temperature , packet1.motor2_temperature , packet1.errorcode_cout , packet1.errorcode_dout );
     mavlink_msg_bms_aux_data_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -87,7 +87,7 @@ static void mavlink_test_bms_aux_data(uint8_t system_id, uint8_t component_id, m
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_bms_aux_data_send(MAVLINK_COMM_1 , packet1.aux_current , packet1.aux_voltage , packet1.BMS_current1 , packet1.BMS_current2 , packet1.BMS_current3 , packet1.BMS_voltage , packet1.BMS_temperature1 , packet1.BMS_temperature2 , packet1.BMS_temperature3 , packet1.BMS_temperature4 , packet1.BMS_cout , packet1.BMS_dout , packet1.Motor1_temp , packet1.Motor2_temp );
+    mavlink_msg_bms_aux_data_send(MAVLINK_COMM_1 , packet1.aux_current , packet1.aux_voltage , packet1.total_current , packet1.total_voltage , packet1.esc1_current , packet1.esc2_current , packet1.bat1_temperature , packet1.bat2_temperature , packet1.esc1_temperature , packet1.esc2_temperature , packet1.motor1_temperature , packet1.motor2_temperature , packet1.errorcode_cout , packet1.errorcode_dout );
     mavlink_msg_bms_aux_data_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 }
@@ -108,24 +108,24 @@ static void mavlink_test_top_mid_pcb_data(uint8_t system_id, uint8_t component_i
     };
     mavlink_top_mid_pcb_data_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
-        packet1.battery_voltage = packet_in.battery_voltage;
+        packet1.total_voltage = packet_in.total_voltage;
         packet1.servo1_current = packet_in.servo1_current;
         packet1.servo2_current = packet_in.servo2_current;
         packet1.servo3_current = packet_in.servo3_current;
-        packet1.temp_servo1 = packet_in.temp_servo1;
-        packet1.temp_servo2 = packet_in.temp_servo2;
-        packet1.temp_servo3 = packet_in.temp_servo3;
-        packet1.temp_ambient1 = packet_in.temp_ambient1;
-        packet1.temp_ambient2 = packet_in.temp_ambient2;
+        packet1.servo1_temperature = packet_in.servo1_temperature;
+        packet1.servo2_temperature = packet_in.servo2_temperature;
+        packet1.servo3_temperature = packet_in.servo3_temperature;
+        packet1.extra1 = packet_in.extra1;
+        packet1.extra2 = packet_in.extra2;
         packet1.mid_servo1_current = packet_in.mid_servo1_current;
         packet1.mid_servo2_current = packet_in.mid_servo2_current;
         packet1.mid_servo3_current = packet_in.mid_servo3_current;
-        packet1.mid_temp_servo1 = packet_in.mid_temp_servo1;
-        packet1.mid_temp_servo2 = packet_in.mid_temp_servo2;
-        packet1.voltage_bec1 = packet_in.voltage_bec1;
-        packet1.voltage_bec2 = packet_in.voltage_bec2;
-        packet1.voltage_buck = packet_in.voltage_buck;
-        packet1.Temp_servo3 = packet_in.Temp_servo3;
+        packet1.mid_servo1_temperature = packet_in.mid_servo1_temperature;
+        packet1.mid_servo2_temperature = packet_in.mid_servo2_temperature;
+        packet1.mid_servo3_temperature = packet_in.mid_servo3_temperature;
+        packet1.bec1_voltage = packet_in.bec1_voltage;
+        packet1.bec2_voltage = packet_in.bec2_voltage;
+        packet1.buck_voltage = packet_in.buck_voltage;
         
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
@@ -140,12 +140,12 @@ static void mavlink_test_top_mid_pcb_data(uint8_t system_id, uint8_t component_i
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_top_mid_pcb_data_pack(system_id, component_id, &msg , packet1.battery_voltage , packet1.servo1_current , packet1.servo2_current , packet1.servo3_current , packet1.temp_servo1 , packet1.temp_servo2 , packet1.temp_servo3 , packet1.temp_ambient1 , packet1.temp_ambient2 , packet1.mid_servo1_current , packet1.mid_servo2_current , packet1.mid_servo3_current , packet1.mid_temp_servo1 , packet1.mid_temp_servo2 , packet1.voltage_bec1 , packet1.voltage_bec2 , packet1.voltage_buck , packet1.Temp_servo3 );
+    mavlink_msg_top_mid_pcb_data_pack(system_id, component_id, &msg , packet1.total_voltage , packet1.servo1_current , packet1.servo2_current , packet1.servo3_current , packet1.servo1_temperature , packet1.servo2_temperature , packet1.servo3_temperature , packet1.extra1 , packet1.extra2 , packet1.mid_servo1_current , packet1.mid_servo2_current , packet1.mid_servo3_current , packet1.mid_servo1_temperature , packet1.mid_servo2_temperature , packet1.mid_servo3_temperature , packet1.bec1_voltage , packet1.bec2_voltage , packet1.buck_voltage );
     mavlink_msg_top_mid_pcb_data_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_top_mid_pcb_data_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.battery_voltage , packet1.servo1_current , packet1.servo2_current , packet1.servo3_current , packet1.temp_servo1 , packet1.temp_servo2 , packet1.temp_servo3 , packet1.temp_ambient1 , packet1.temp_ambient2 , packet1.mid_servo1_current , packet1.mid_servo2_current , packet1.mid_servo3_current , packet1.mid_temp_servo1 , packet1.mid_temp_servo2 , packet1.voltage_bec1 , packet1.voltage_bec2 , packet1.voltage_buck , packet1.Temp_servo3 );
+    mavlink_msg_top_mid_pcb_data_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.total_voltage , packet1.servo1_current , packet1.servo2_current , packet1.servo3_current , packet1.servo1_temperature , packet1.servo2_temperature , packet1.servo3_temperature , packet1.extra1 , packet1.extra2 , packet1.mid_servo1_current , packet1.mid_servo2_current , packet1.mid_servo3_current , packet1.mid_servo1_temperature , packet1.mid_servo2_temperature , packet1.mid_servo3_temperature , packet1.bec1_voltage , packet1.bec2_voltage , packet1.buck_voltage );
     mavlink_msg_top_mid_pcb_data_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -158,7 +158,7 @@ static void mavlink_test_top_mid_pcb_data(uint8_t system_id, uint8_t component_i
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_top_mid_pcb_data_send(MAVLINK_COMM_1 , packet1.battery_voltage , packet1.servo1_current , packet1.servo2_current , packet1.servo3_current , packet1.temp_servo1 , packet1.temp_servo2 , packet1.temp_servo3 , packet1.temp_ambient1 , packet1.temp_ambient2 , packet1.mid_servo1_current , packet1.mid_servo2_current , packet1.mid_servo3_current , packet1.mid_temp_servo1 , packet1.mid_temp_servo2 , packet1.voltage_bec1 , packet1.voltage_bec2 , packet1.voltage_buck , packet1.Temp_servo3 );
+    mavlink_msg_top_mid_pcb_data_send(MAVLINK_COMM_1 , packet1.total_voltage , packet1.servo1_current , packet1.servo2_current , packet1.servo3_current , packet1.servo1_temperature , packet1.servo2_temperature , packet1.servo3_temperature , packet1.extra1 , packet1.extra2 , packet1.mid_servo1_current , packet1.mid_servo2_current , packet1.mid_servo3_current , packet1.mid_servo1_temperature , packet1.mid_servo2_temperature , packet1.mid_servo3_temperature , packet1.bec1_voltage , packet1.bec2_voltage , packet1.buck_voltage );
     mavlink_msg_top_mid_pcb_data_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 }
