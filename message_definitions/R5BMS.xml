@@ -7,39 +7,40 @@
       <description>Data from auxillary microcontroller and BMS microcontroller</description>
       <field name="aux_current" type="uint16_t">aux_battery_current</field>
       <field name="aux_voltage" type="uint16_t">aux_battery_voltage</field>
-      <field name="BMS_current1" type="uint16_t">BMS_mux_current1</field>
-      <field name="BMS_current2" type="uint16_t">BMS_mux_current2</field>
-      <field name="BMS_current3" type="uint16_t">BMS_mux_current3</field>
-      <field name="BMS_voltage" type="uint16_t">BMS_mux_voltage</field>
-      <field name="BMS_temperature1" type="uint16_t">BMS_mux_temperature1</field>
-      <field name="BMS_temperature2" type="uint16_t">BMS_mux_temperature2</field>
-      <field name="BMS_temperature3" type="uint16_t">BMS_mux_temperature3</field>
-      <field name="BMS_temperature4" type="uint16_t">BMS_mux_temperature4</field>
-      <field name="BMS_cout" type="uint16_t">BMS_ic_cout</field>
-      <field name="BMS_dout" type="uint16_t">BMS_ic_dout</field>
-      <field name="Motor1_temp" type="uint16_t">Temperature of Motor 1</field>
-      <field name="Motor2_temp" type="uint16_t">Temperature of Motor 2</field>
+      <field name="total_current" type="uint16_t">total current</field>
+      <field name="total_voltage" type="uint16_t">total voltage</field>
+      <field name="esc1_current" type="uint16_t">esc1 current</field>
+      <field name="esc2_current" type="uint16_t">esc2 current</field>
+      <field name="bat1_temperature" type="uint16_t">battery1 temperature</field>
+      <field name="bat2_temperature" type="uint16_t">battery2 temperature</field>
+      <field name="esc1_temperature" type="uint16_t">esc1 temperature</field>
+      <field name="esc2_temperature" type="uint16_t">esc2 temperature</field>
+      <field name="motor1_temperature" type="uint16_t">motor1 temperature</field>
+      <field name="motor2_temperature" type="uint16_t">motor2 temperature</field>
+      <field name="errorcode_cout" type="uint16_t">fault detection data:cout</field>
+      <field name="errorcode_dout" type="uint16_t">fault detection data:dout</field>
     </message>
+
     <message id="11071" name="TOP_MID_PCB_DATA">
       <description>Data from top and mid pcb controllers microcontroller</description>
-      <field name="battery_voltage" type="uint16_t">Top_battery_voltage</field>
-      <field name="servo1_current" type="uint16_t">Top_servo1_current</field>
-      <field name="servo2_current" type="uint16_t">Top_servo2_current</field>
-      <field name="servo3_current" type="uint16_t">Top_servo3_current</field>
-      <field name="temp_servo1" type="uint16_t">Top_servo1_temperature</field>
-      <field name="temp_servo2" type="uint16_t">Top_servo2_temperature</field>
-      <field name="temp_servo3" type="uint16_t">Top_servo3_temperature</field>
-      <field name="temp_ambient1" type="uint16_t">ambient temperature 1</field>
-      <field name="temp_ambient2" type="uint16_t">ambient temperature 2</field>
+      <field name="total_voltage" type="uint16_t">top battery voltage</field>
+      <field name="servo1_current" type="uint16_t">top servo1 current</field>
+      <field name="servo2_current" type="uint16_t">top servo2 current</field>
+      <field name="servo3_current" type="uint16_t">top servo3 current</field>
+      <field name="servo1_temperature" type="uint16_t">top servo1 temperature</field>
+      <field name="servo2_temperature" type="uint16_t">top servo2 temperature</field>
+      <field name="servo3_temperature" type="uint16_t">top servo3 temperature</field>
+      <field name="extra1" type="uint16_t">ambient temperature 1</field>
+      <field name="extra2" type="uint16_t">ambient temperature 2</field>
       <field name="mid_servo1_current" type="uint16_t">mid_servo1_current</field>
       <field name="mid_servo2_current" type="uint16_t">mid_servo2_current</field>
       <field name="mid_servo3_current" type="uint16_t">mid_servo3_current</field>
-      <field name="mid_temp_servo1" type="uint16_t">mid_temp_servo1</field>
-      <field name="mid_temp_servo2" type="uint16_t">mid_temp_servo2</field>
-      <field name="voltage_bec1" type="uint16_t">voltage_bec1</field>
-      <field name="voltage_bec2" type="uint16_t">voltage_bec2</field>
-      <field name="voltage_buck" type="uint16_t">voltage_buck</field>
-      <field name="Temp_servo3" type="uint16_t">Temp_servo3</field>
+      <field name="mid_servo1_temperature" type="uint16_t">mid servo1 temperature</field>
+      <field name="mid_servo2_temperature" type="uint16_t">mid servo2 temperature</field>
+      <field name="mid_servo3_temperature" type="uint16_t">mid servo3 temperature</field>
+      <field name="bec1_voltage" type="uint16_t">bec1 voltage</field>
+      <field name="bec2_voltage" type="uint16_t">bec2 voltage</field>
+      <field name="buck_voltage" type="uint16_t">buck voltage</field>
     </message>
   </messages>
 </mavlink>
