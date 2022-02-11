@@ -1,46 +1,73 @@
 <?xml version="1.0"?>
 <mavlink>
   <version>3</version>
-  <!-- <include>minimal.xml</include> -->
   <messages>
-    <message id="11069" name="BMS_AUX_DATA">
-      <description>Data from auxillary microcontroller and BMS microcontroller</description>
-      <field name="aux_current" type="uint16_t">aux_battery_current</field>
-      <field name="aux_voltage" type="uint16_t">aux_battery_voltage</field>
-      <field name="total_current" type="uint16_t">total current</field>
-      <field name="total_voltage" type="uint16_t">total voltage</field>
-      <field name="esc1_current" type="uint16_t">esc1 current</field>
-      <field name="esc2_current" type="uint16_t">esc2 current</field>
-      <field name="bat1_temperature" type="uint16_t">battery1 temperature</field>
-      <field name="bat2_temperature" type="uint16_t">battery2 temperature</field>
-      <field name="esc1_temperature" type="uint16_t">esc1 temperature</field>
-      <field name="esc2_temperature" type="uint16_t">esc2 temperature</field>
-      <field name="motor1_temperature" type="uint16_t">motor1 temperature</field>
-      <field name="motor2_temperature" type="uint16_t">motor2 temperature</field>
-      <field name="errorcode_cout" type="uint16_t">fault detection data:cout</field>
-      <field name="errorcode_dout" type="uint16_t">fault detection data:dout</field>
+
+    <message id="11069" name="TOP_DATA">
+      <description>Data from top microcontroller</description>
+      <field name="main_voltage" type="uint16_t" units="V">main voltage</field>
+      <field name="uC_buck_voltage_5V" type="uint8_t" units="V">microcontroller 5v buck</field>
+      <field name="converter1_voltage_7V" type="uint8_t" units="V">converter 1 voltage</field>
+      <field name="converter2_voltage_7V" type="uint8_t" units="V">converter 2 voltage</field>
+      <field name="converter3_voltage_7V" type="uint8_t" units="V">converter 3 voltage</field>
+      <field name="converter4_voltage_7V" type="uint8_t" units="V">converter 4 voltage</field>
+      <field name="servo1_current" type="uint16_t" units="mA">servo1 current</field>
+      <field name="servo2_current" type="uint16_t" units="mA">servo2 current</field>
+      <field name="servo3_current" type="uint16_t" units="mA">servo3 current</field>
+      <field name="servo1_temperature" type="uint8_t" units="C">servo1 temperature</field>
+      <field name="servo2_temperature" type="uint8_t" units="C">servo2 temperature</field>
+      <field name="servo3_temperature" type="uint8_t" units="C">servo3_temperature</field>
+      <field name="extra" type="uint8_t" invalid="-1">mid_servo3_current</field> 
     </message>
 
-    <message id="11071" name="TOP_MID_PCB_DATA">
-      <description>Data from top and mid pcb controllers microcontroller</description>
-      <field name="total_voltage" type="uint16_t">top battery voltage</field>
-      <field name="servo1_current" type="uint16_t">top servo1 current</field>
-      <field name="servo2_current" type="uint16_t">top servo2 current</field>
-      <field name="servo3_current" type="uint16_t">top servo3 current</field>
-      <field name="servo1_temperature" type="uint16_t">top servo1 temperature</field>
-      <field name="servo2_temperature" type="uint16_t">top servo2 temperature</field>
-      <field name="servo3_temperature" type="uint16_t">top servo3 temperature</field>
-      <field name="extra1" type="uint16_t">ambient temperature 1</field>
-      <field name="extra2" type="uint16_t">ambient temperature 2</field>
-      <field name="mid_servo1_current" type="uint16_t">mid_servo1_current</field>
-      <field name="mid_servo2_current" type="uint16_t">mid_servo2_current</field>
-      <field name="mid_servo3_current" type="uint16_t">mid_servo3_current</field>
-      <field name="mid_servo1_temperature" type="uint16_t">mid servo1 temperature</field>
-      <field name="mid_servo2_temperature" type="uint16_t">mid servo2 temperature</field>
-      <field name="mid_servo3_temperature" type="uint16_t">mid servo3 temperature</field>
-      <field name="bec1_voltage" type="uint16_t">bec1 voltage</field>
-      <field name="bec2_voltage" type="uint16_t">bec2 voltage</field>
-      <field name="buck_voltage" type="uint16_t">buck voltage</field>
+    <message id="11071" name="MID_DATA">
+      <description>Data from mid pcb controllers microcontroller</description>
+      <field name="servo4_current" type="uint16_t" units="mA">mid servo4 current</field>
+      <field name="servo5_current" type="uint16_t" units="mA">mid servo5 current</field>
+      <field name="servo6_current" type="uint16_t" units="mA">mid servo6 current</field>
+      <field name="aux_batt_current" type="uint16_t" units="mA">aux battery current</field>
+      <field name="servo4_temperature" type="uint8_t" units="C">top servo1 temperature</field>
+      <field name="servo5_temperature" type="uint8_t" units="C">top servo2 temperature</field>
+      <field name="servo6_temperature" type="uint8_t" units="C">top servo3 temperature</field>
+      <field name="bec1_voltage" type="uint8_t" units="V">bec voltage 1</field>
+      <field name="bec2_voltage" type="uint8_t" units="V">bec voltage 2</field>
+      <field name="converter1_voltage_7V" type="uint8_t" units="V">converter1 voltage</field>
+      <field name="converter2_voltage_7V" type="uint8_t" units="V">converter2 voltage</field>
+      <field name="converter3_voltage_7V" type="uint8_t" units="V">converter3 voltage</field>
+      <field name="converter4_voltage_7V" type="uint8_t" units="V">converter4 voltage</field>
+      <field name="uC_buck_voltage_5V" type="uint8_t" units="V">microcontroller buck voltage</field>
+      <field name="pixhawk_main_voltage_5V" type="uint8_t" units="V">pixhawk main voltage</field>
+      <field name="pixhawk_aux_voltage_5V" type="uint8_t" units="V">pixhawk aux voltage</field>
+      <field name="pixhawk_main_extra_voltage" type="uint8_t" units="V">pixhawk main extra voltage</field>
+      <field name="jetson_voltage" type="uint8_t" units="V">jetson main voltage</field>
+      <field name="jetson_extra" type="uint8_t" units="V">jetson main extra voltage</field>
+      <field name="video_main_voltage_12V" type="uint8_t" units="V">video main voltage</field>
+      <field name="video_aux_voltage_12V" type="uint8_t" units="V">video aux voltage</field>
+      <field name="main_battery_voltage" type="uint8_t" units="V">main battery voltage</field> 
+      <field name="aux_battery_voltage" type="uint8_t" units="V">aux battery voltage</field>
+      <field name="extra" type="uint8_t" invalid="-1">extra</field>  
     </message>
+
+    <message id="11073" name="BMS_DATA">
+      <description>Data from BMS microcontroller</description>
+      <field name="total_current" type="uint8_t" units="mA">total_current</field>
+      <field name="esc1_current" type="uint8_t" units="mA">esc1 current</field>
+      <field name="esc2_current" type="uint8_t" units="mA">esc2 current</field>
+      <field name="main_voltage" type="uint16_t" units="V">main_battery_voltage</field>
+      <field name="uC_buck_voltage_5V" type="uint8_t" units="V">microcontroller voltage</field>
+      <field name="bat1_temperature" type="uint8_t" units="C">battery1 temperature</field>
+      <field name="bat2_temperature" type="uint8_t" units="C">battery2 temperature</field>
+      <field name="esc1_temperature" type="uint8_t" units="C">esc1 temperature</field>
+      <field name="esc2_temperature" type="uint8_t" units="C">esc2 temperature</field>
+      <field name="motor1_temperature" type="uint8_t" units="C">motor1 temperature</field>
+      <field name="motor2_temperature" type="uint8_t" units="C">motor2 temperature</field>
+      <field name="mosfet1_temperature" type="uint8_t" units="C">mosfet1 temperature</field>
+      <field name="mosfet2_temperature" type="uint8_t" units="C">mosfet2 temperature</field>
+      <field name="errorcode_cout" type="uint8_t">fault detection data:cout</field>
+      <field name="errorcode_dout" type="uint8_t">fault detection data:dout</field>
+      <field name="extra1" type="uint8_t" invalid="-1">extra 1</field>
+      <field name="extra2" type="uint8_t" invalid="-1">extra 2</field>
+    </message>
+
   </messages>
 </mavlink>
