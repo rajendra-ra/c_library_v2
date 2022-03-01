@@ -5,28 +5,28 @@
 
 
 typedef struct __mavlink_top_data_t {
- uint16_t main_voltage; /*< [V] main voltage*/
- uint16_t servo1_current; /*< [mA] servo1 current*/
- uint16_t servo2_current; /*< [mA] servo2 current*/
- uint16_t servo3_current; /*< [mA] servo3 current*/
- uint8_t uC_buck_voltage_5V; /*< [V] microcontroller 5v buck*/
- uint8_t converter1_voltage_7V; /*< [V] converter 1 voltage*/
- uint8_t converter2_voltage_7V; /*< [V] converter 2 voltage*/
- uint8_t converter3_voltage_7V; /*< [V] converter 3 voltage*/
- uint8_t converter4_voltage_7V; /*< [V] converter 4 voltage*/
- uint8_t servo1_temperature; /*< [C] servo1 temperature*/
- uint8_t servo2_temperature; /*< [C] servo2 temperature*/
- uint8_t servo3_temperature; /*< [C] servo3_temperature*/
- uint8_t extra; /*<  mid_servo3_current*/
+ int16_t main_voltage; /*< [V] main voltage*/
+ int16_t uC_buck_voltage_5V; /*< [V] microcontroller 5v buck*/
+ int16_t converter1_voltage_7V; /*< [V] converter 1 voltage*/
+ int16_t converter2_voltage_7V; /*< [V] converter 2 voltage*/
+ int16_t converter3_voltage_7V; /*< [V] converter 3 voltage*/
+ int16_t converter4_voltage_7V; /*< [V] converter 4 voltage*/
+ int16_t servo1_current; /*< [mA] servo1 current*/
+ int16_t servo2_current; /*< [mA] servo2 current*/
+ int16_t servo3_current; /*< [mA] servo3 current*/
+ int8_t servo1_temperature; /*< [C] servo1 temperature*/
+ int8_t servo2_temperature; /*< [C] servo2 temperature*/
+ int8_t servo3_temperature; /*< [C] servo3_temperature*/
+ int8_t extra; /*<  mid_servo3_current*/
 } mavlink_top_data_t;
 
-#define MAVLINK_MSG_ID_TOP_DATA_LEN 17
-#define MAVLINK_MSG_ID_TOP_DATA_MIN_LEN 17
-#define MAVLINK_MSG_ID_11069_LEN 17
-#define MAVLINK_MSG_ID_11069_MIN_LEN 17
+#define MAVLINK_MSG_ID_TOP_DATA_LEN 22
+#define MAVLINK_MSG_ID_TOP_DATA_MIN_LEN 22
+#define MAVLINK_MSG_ID_11069_LEN 22
+#define MAVLINK_MSG_ID_11069_MIN_LEN 22
 
-#define MAVLINK_MSG_ID_TOP_DATA_CRC 59
-#define MAVLINK_MSG_ID_11069_CRC 59
+#define MAVLINK_MSG_ID_TOP_DATA_CRC 46
+#define MAVLINK_MSG_ID_11069_CRC 46
 
 
 
@@ -35,38 +35,38 @@ typedef struct __mavlink_top_data_t {
     11069, \
     "TOP_DATA", \
     13, \
-    {  { "main_voltage", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_top_data_t, main_voltage) }, \
-         { "uC_buck_voltage_5V", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_top_data_t, uC_buck_voltage_5V) }, \
-         { "converter1_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_top_data_t, converter1_voltage_7V) }, \
-         { "converter2_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_top_data_t, converter2_voltage_7V) }, \
-         { "converter3_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 11, offsetof(mavlink_top_data_t, converter3_voltage_7V) }, \
-         { "converter4_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_top_data_t, converter4_voltage_7V) }, \
-         { "servo1_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_top_data_t, servo1_current) }, \
-         { "servo2_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_top_data_t, servo2_current) }, \
-         { "servo3_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_top_data_t, servo3_current) }, \
-         { "servo1_temperature", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_top_data_t, servo1_temperature) }, \
-         { "servo2_temperature", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_top_data_t, servo2_temperature) }, \
-         { "servo3_temperature", NULL, MAVLINK_TYPE_UINT8_T, 0, 15, offsetof(mavlink_top_data_t, servo3_temperature) }, \
-         { "extra", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_top_data_t, extra) }, \
+    {  { "main_voltage", NULL, MAVLINK_TYPE_INT16_T, 0, 0, offsetof(mavlink_top_data_t, main_voltage) }, \
+         { "uC_buck_voltage_5V", NULL, MAVLINK_TYPE_INT16_T, 0, 2, offsetof(mavlink_top_data_t, uC_buck_voltage_5V) }, \
+         { "converter1_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 4, offsetof(mavlink_top_data_t, converter1_voltage_7V) }, \
+         { "converter2_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 6, offsetof(mavlink_top_data_t, converter2_voltage_7V) }, \
+         { "converter3_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 8, offsetof(mavlink_top_data_t, converter3_voltage_7V) }, \
+         { "converter4_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 10, offsetof(mavlink_top_data_t, converter4_voltage_7V) }, \
+         { "servo1_current", NULL, MAVLINK_TYPE_INT16_T, 0, 12, offsetof(mavlink_top_data_t, servo1_current) }, \
+         { "servo2_current", NULL, MAVLINK_TYPE_INT16_T, 0, 14, offsetof(mavlink_top_data_t, servo2_current) }, \
+         { "servo3_current", NULL, MAVLINK_TYPE_INT16_T, 0, 16, offsetof(mavlink_top_data_t, servo3_current) }, \
+         { "servo1_temperature", NULL, MAVLINK_TYPE_INT8_T, 0, 18, offsetof(mavlink_top_data_t, servo1_temperature) }, \
+         { "servo2_temperature", NULL, MAVLINK_TYPE_INT8_T, 0, 19, offsetof(mavlink_top_data_t, servo2_temperature) }, \
+         { "servo3_temperature", NULL, MAVLINK_TYPE_INT8_T, 0, 20, offsetof(mavlink_top_data_t, servo3_temperature) }, \
+         { "extra", NULL, MAVLINK_TYPE_INT8_T, 0, 21, offsetof(mavlink_top_data_t, extra) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_TOP_DATA { \
     "TOP_DATA", \
     13, \
-    {  { "main_voltage", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_top_data_t, main_voltage) }, \
-         { "uC_buck_voltage_5V", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_top_data_t, uC_buck_voltage_5V) }, \
-         { "converter1_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_top_data_t, converter1_voltage_7V) }, \
-         { "converter2_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_top_data_t, converter2_voltage_7V) }, \
-         { "converter3_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 11, offsetof(mavlink_top_data_t, converter3_voltage_7V) }, \
-         { "converter4_voltage_7V", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_top_data_t, converter4_voltage_7V) }, \
-         { "servo1_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_top_data_t, servo1_current) }, \
-         { "servo2_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_top_data_t, servo2_current) }, \
-         { "servo3_current", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_top_data_t, servo3_current) }, \
-         { "servo1_temperature", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_top_data_t, servo1_temperature) }, \
-         { "servo2_temperature", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_top_data_t, servo2_temperature) }, \
-         { "servo3_temperature", NULL, MAVLINK_TYPE_UINT8_T, 0, 15, offsetof(mavlink_top_data_t, servo3_temperature) }, \
-         { "extra", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_top_data_t, extra) }, \
+    {  { "main_voltage", NULL, MAVLINK_TYPE_INT16_T, 0, 0, offsetof(mavlink_top_data_t, main_voltage) }, \
+         { "uC_buck_voltage_5V", NULL, MAVLINK_TYPE_INT16_T, 0, 2, offsetof(mavlink_top_data_t, uC_buck_voltage_5V) }, \
+         { "converter1_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 4, offsetof(mavlink_top_data_t, converter1_voltage_7V) }, \
+         { "converter2_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 6, offsetof(mavlink_top_data_t, converter2_voltage_7V) }, \
+         { "converter3_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 8, offsetof(mavlink_top_data_t, converter3_voltage_7V) }, \
+         { "converter4_voltage_7V", NULL, MAVLINK_TYPE_INT16_T, 0, 10, offsetof(mavlink_top_data_t, converter4_voltage_7V) }, \
+         { "servo1_current", NULL, MAVLINK_TYPE_INT16_T, 0, 12, offsetof(mavlink_top_data_t, servo1_current) }, \
+         { "servo2_current", NULL, MAVLINK_TYPE_INT16_T, 0, 14, offsetof(mavlink_top_data_t, servo2_current) }, \
+         { "servo3_current", NULL, MAVLINK_TYPE_INT16_T, 0, 16, offsetof(mavlink_top_data_t, servo3_current) }, \
+         { "servo1_temperature", NULL, MAVLINK_TYPE_INT8_T, 0, 18, offsetof(mavlink_top_data_t, servo1_temperature) }, \
+         { "servo2_temperature", NULL, MAVLINK_TYPE_INT8_T, 0, 19, offsetof(mavlink_top_data_t, servo2_temperature) }, \
+         { "servo3_temperature", NULL, MAVLINK_TYPE_INT8_T, 0, 20, offsetof(mavlink_top_data_t, servo3_temperature) }, \
+         { "extra", NULL, MAVLINK_TYPE_INT8_T, 0, 21, offsetof(mavlink_top_data_t, extra) }, \
          } \
 }
 #endif
@@ -93,36 +93,36 @@ typedef struct __mavlink_top_data_t {
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_top_data_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint16_t main_voltage, uint8_t uC_buck_voltage_5V, uint8_t converter1_voltage_7V, uint8_t converter2_voltage_7V, uint8_t converter3_voltage_7V, uint8_t converter4_voltage_7V, uint16_t servo1_current, uint16_t servo2_current, uint16_t servo3_current, uint8_t servo1_temperature, uint8_t servo2_temperature, uint8_t servo3_temperature, uint8_t extra)
+                               int16_t main_voltage, int16_t uC_buck_voltage_5V, int16_t converter1_voltage_7V, int16_t converter2_voltage_7V, int16_t converter3_voltage_7V, int16_t converter4_voltage_7V, int16_t servo1_current, int16_t servo2_current, int16_t servo3_current, int8_t servo1_temperature, int8_t servo2_temperature, int8_t servo3_temperature, int8_t extra)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_TOP_DATA_LEN];
-    _mav_put_uint16_t(buf, 0, main_voltage);
-    _mav_put_uint16_t(buf, 2, servo1_current);
-    _mav_put_uint16_t(buf, 4, servo2_current);
-    _mav_put_uint16_t(buf, 6, servo3_current);
-    _mav_put_uint8_t(buf, 8, uC_buck_voltage_5V);
-    _mav_put_uint8_t(buf, 9, converter1_voltage_7V);
-    _mav_put_uint8_t(buf, 10, converter2_voltage_7V);
-    _mav_put_uint8_t(buf, 11, converter3_voltage_7V);
-    _mav_put_uint8_t(buf, 12, converter4_voltage_7V);
-    _mav_put_uint8_t(buf, 13, servo1_temperature);
-    _mav_put_uint8_t(buf, 14, servo2_temperature);
-    _mav_put_uint8_t(buf, 15, servo3_temperature);
-    _mav_put_uint8_t(buf, 16, extra);
+    _mav_put_int16_t(buf, 0, main_voltage);
+    _mav_put_int16_t(buf, 2, uC_buck_voltage_5V);
+    _mav_put_int16_t(buf, 4, converter1_voltage_7V);
+    _mav_put_int16_t(buf, 6, converter2_voltage_7V);
+    _mav_put_int16_t(buf, 8, converter3_voltage_7V);
+    _mav_put_int16_t(buf, 10, converter4_voltage_7V);
+    _mav_put_int16_t(buf, 12, servo1_current);
+    _mav_put_int16_t(buf, 14, servo2_current);
+    _mav_put_int16_t(buf, 16, servo3_current);
+    _mav_put_int8_t(buf, 18, servo1_temperature);
+    _mav_put_int8_t(buf, 19, servo2_temperature);
+    _mav_put_int8_t(buf, 20, servo3_temperature);
+    _mav_put_int8_t(buf, 21, extra);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_TOP_DATA_LEN);
 #else
     mavlink_top_data_t packet;
     packet.main_voltage = main_voltage;
-    packet.servo1_current = servo1_current;
-    packet.servo2_current = servo2_current;
-    packet.servo3_current = servo3_current;
     packet.uC_buck_voltage_5V = uC_buck_voltage_5V;
     packet.converter1_voltage_7V = converter1_voltage_7V;
     packet.converter2_voltage_7V = converter2_voltage_7V;
     packet.converter3_voltage_7V = converter3_voltage_7V;
     packet.converter4_voltage_7V = converter4_voltage_7V;
+    packet.servo1_current = servo1_current;
+    packet.servo2_current = servo2_current;
+    packet.servo3_current = servo3_current;
     packet.servo1_temperature = servo1_temperature;
     packet.servo2_temperature = servo2_temperature;
     packet.servo3_temperature = servo3_temperature;
@@ -158,36 +158,36 @@ static inline uint16_t mavlink_msg_top_data_pack(uint8_t system_id, uint8_t comp
  */
 static inline uint16_t mavlink_msg_top_data_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint16_t main_voltage,uint8_t uC_buck_voltage_5V,uint8_t converter1_voltage_7V,uint8_t converter2_voltage_7V,uint8_t converter3_voltage_7V,uint8_t converter4_voltage_7V,uint16_t servo1_current,uint16_t servo2_current,uint16_t servo3_current,uint8_t servo1_temperature,uint8_t servo2_temperature,uint8_t servo3_temperature,uint8_t extra)
+                                   int16_t main_voltage,int16_t uC_buck_voltage_5V,int16_t converter1_voltage_7V,int16_t converter2_voltage_7V,int16_t converter3_voltage_7V,int16_t converter4_voltage_7V,int16_t servo1_current,int16_t servo2_current,int16_t servo3_current,int8_t servo1_temperature,int8_t servo2_temperature,int8_t servo3_temperature,int8_t extra)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_TOP_DATA_LEN];
-    _mav_put_uint16_t(buf, 0, main_voltage);
-    _mav_put_uint16_t(buf, 2, servo1_current);
-    _mav_put_uint16_t(buf, 4, servo2_current);
-    _mav_put_uint16_t(buf, 6, servo3_current);
-    _mav_put_uint8_t(buf, 8, uC_buck_voltage_5V);
-    _mav_put_uint8_t(buf, 9, converter1_voltage_7V);
-    _mav_put_uint8_t(buf, 10, converter2_voltage_7V);
-    _mav_put_uint8_t(buf, 11, converter3_voltage_7V);
-    _mav_put_uint8_t(buf, 12, converter4_voltage_7V);
-    _mav_put_uint8_t(buf, 13, servo1_temperature);
-    _mav_put_uint8_t(buf, 14, servo2_temperature);
-    _mav_put_uint8_t(buf, 15, servo3_temperature);
-    _mav_put_uint8_t(buf, 16, extra);
+    _mav_put_int16_t(buf, 0, main_voltage);
+    _mav_put_int16_t(buf, 2, uC_buck_voltage_5V);
+    _mav_put_int16_t(buf, 4, converter1_voltage_7V);
+    _mav_put_int16_t(buf, 6, converter2_voltage_7V);
+    _mav_put_int16_t(buf, 8, converter3_voltage_7V);
+    _mav_put_int16_t(buf, 10, converter4_voltage_7V);
+    _mav_put_int16_t(buf, 12, servo1_current);
+    _mav_put_int16_t(buf, 14, servo2_current);
+    _mav_put_int16_t(buf, 16, servo3_current);
+    _mav_put_int8_t(buf, 18, servo1_temperature);
+    _mav_put_int8_t(buf, 19, servo2_temperature);
+    _mav_put_int8_t(buf, 20, servo3_temperature);
+    _mav_put_int8_t(buf, 21, extra);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_TOP_DATA_LEN);
 #else
     mavlink_top_data_t packet;
     packet.main_voltage = main_voltage;
-    packet.servo1_current = servo1_current;
-    packet.servo2_current = servo2_current;
-    packet.servo3_current = servo3_current;
     packet.uC_buck_voltage_5V = uC_buck_voltage_5V;
     packet.converter1_voltage_7V = converter1_voltage_7V;
     packet.converter2_voltage_7V = converter2_voltage_7V;
     packet.converter3_voltage_7V = converter3_voltage_7V;
     packet.converter4_voltage_7V = converter4_voltage_7V;
+    packet.servo1_current = servo1_current;
+    packet.servo2_current = servo2_current;
+    packet.servo3_current = servo3_current;
     packet.servo1_temperature = servo1_temperature;
     packet.servo2_temperature = servo2_temperature;
     packet.servo3_temperature = servo3_temperature;
@@ -247,36 +247,36 @@ static inline uint16_t mavlink_msg_top_data_encode_chan(uint8_t system_id, uint8
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_top_data_send(mavlink_channel_t chan, uint16_t main_voltage, uint8_t uC_buck_voltage_5V, uint8_t converter1_voltage_7V, uint8_t converter2_voltage_7V, uint8_t converter3_voltage_7V, uint8_t converter4_voltage_7V, uint16_t servo1_current, uint16_t servo2_current, uint16_t servo3_current, uint8_t servo1_temperature, uint8_t servo2_temperature, uint8_t servo3_temperature, uint8_t extra)
+static inline void mavlink_msg_top_data_send(mavlink_channel_t chan, int16_t main_voltage, int16_t uC_buck_voltage_5V, int16_t converter1_voltage_7V, int16_t converter2_voltage_7V, int16_t converter3_voltage_7V, int16_t converter4_voltage_7V, int16_t servo1_current, int16_t servo2_current, int16_t servo3_current, int8_t servo1_temperature, int8_t servo2_temperature, int8_t servo3_temperature, int8_t extra)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_TOP_DATA_LEN];
-    _mav_put_uint16_t(buf, 0, main_voltage);
-    _mav_put_uint16_t(buf, 2, servo1_current);
-    _mav_put_uint16_t(buf, 4, servo2_current);
-    _mav_put_uint16_t(buf, 6, servo3_current);
-    _mav_put_uint8_t(buf, 8, uC_buck_voltage_5V);
-    _mav_put_uint8_t(buf, 9, converter1_voltage_7V);
-    _mav_put_uint8_t(buf, 10, converter2_voltage_7V);
-    _mav_put_uint8_t(buf, 11, converter3_voltage_7V);
-    _mav_put_uint8_t(buf, 12, converter4_voltage_7V);
-    _mav_put_uint8_t(buf, 13, servo1_temperature);
-    _mav_put_uint8_t(buf, 14, servo2_temperature);
-    _mav_put_uint8_t(buf, 15, servo3_temperature);
-    _mav_put_uint8_t(buf, 16, extra);
+    _mav_put_int16_t(buf, 0, main_voltage);
+    _mav_put_int16_t(buf, 2, uC_buck_voltage_5V);
+    _mav_put_int16_t(buf, 4, converter1_voltage_7V);
+    _mav_put_int16_t(buf, 6, converter2_voltage_7V);
+    _mav_put_int16_t(buf, 8, converter3_voltage_7V);
+    _mav_put_int16_t(buf, 10, converter4_voltage_7V);
+    _mav_put_int16_t(buf, 12, servo1_current);
+    _mav_put_int16_t(buf, 14, servo2_current);
+    _mav_put_int16_t(buf, 16, servo3_current);
+    _mav_put_int8_t(buf, 18, servo1_temperature);
+    _mav_put_int8_t(buf, 19, servo2_temperature);
+    _mav_put_int8_t(buf, 20, servo3_temperature);
+    _mav_put_int8_t(buf, 21, extra);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_TOP_DATA, buf, MAVLINK_MSG_ID_TOP_DATA_MIN_LEN, MAVLINK_MSG_ID_TOP_DATA_LEN, MAVLINK_MSG_ID_TOP_DATA_CRC);
 #else
     mavlink_top_data_t packet;
     packet.main_voltage = main_voltage;
-    packet.servo1_current = servo1_current;
-    packet.servo2_current = servo2_current;
-    packet.servo3_current = servo3_current;
     packet.uC_buck_voltage_5V = uC_buck_voltage_5V;
     packet.converter1_voltage_7V = converter1_voltage_7V;
     packet.converter2_voltage_7V = converter2_voltage_7V;
     packet.converter3_voltage_7V = converter3_voltage_7V;
     packet.converter4_voltage_7V = converter4_voltage_7V;
+    packet.servo1_current = servo1_current;
+    packet.servo2_current = servo2_current;
+    packet.servo3_current = servo3_current;
     packet.servo1_temperature = servo1_temperature;
     packet.servo2_temperature = servo2_temperature;
     packet.servo3_temperature = servo3_temperature;
@@ -308,36 +308,36 @@ static inline void mavlink_msg_top_data_send_struct(mavlink_channel_t chan, cons
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_top_data_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint16_t main_voltage, uint8_t uC_buck_voltage_5V, uint8_t converter1_voltage_7V, uint8_t converter2_voltage_7V, uint8_t converter3_voltage_7V, uint8_t converter4_voltage_7V, uint16_t servo1_current, uint16_t servo2_current, uint16_t servo3_current, uint8_t servo1_temperature, uint8_t servo2_temperature, uint8_t servo3_temperature, uint8_t extra)
+static inline void mavlink_msg_top_data_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  int16_t main_voltage, int16_t uC_buck_voltage_5V, int16_t converter1_voltage_7V, int16_t converter2_voltage_7V, int16_t converter3_voltage_7V, int16_t converter4_voltage_7V, int16_t servo1_current, int16_t servo2_current, int16_t servo3_current, int8_t servo1_temperature, int8_t servo2_temperature, int8_t servo3_temperature, int8_t extra)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
-    _mav_put_uint16_t(buf, 0, main_voltage);
-    _mav_put_uint16_t(buf, 2, servo1_current);
-    _mav_put_uint16_t(buf, 4, servo2_current);
-    _mav_put_uint16_t(buf, 6, servo3_current);
-    _mav_put_uint8_t(buf, 8, uC_buck_voltage_5V);
-    _mav_put_uint8_t(buf, 9, converter1_voltage_7V);
-    _mav_put_uint8_t(buf, 10, converter2_voltage_7V);
-    _mav_put_uint8_t(buf, 11, converter3_voltage_7V);
-    _mav_put_uint8_t(buf, 12, converter4_voltage_7V);
-    _mav_put_uint8_t(buf, 13, servo1_temperature);
-    _mav_put_uint8_t(buf, 14, servo2_temperature);
-    _mav_put_uint8_t(buf, 15, servo3_temperature);
-    _mav_put_uint8_t(buf, 16, extra);
+    _mav_put_int16_t(buf, 0, main_voltage);
+    _mav_put_int16_t(buf, 2, uC_buck_voltage_5V);
+    _mav_put_int16_t(buf, 4, converter1_voltage_7V);
+    _mav_put_int16_t(buf, 6, converter2_voltage_7V);
+    _mav_put_int16_t(buf, 8, converter3_voltage_7V);
+    _mav_put_int16_t(buf, 10, converter4_voltage_7V);
+    _mav_put_int16_t(buf, 12, servo1_current);
+    _mav_put_int16_t(buf, 14, servo2_current);
+    _mav_put_int16_t(buf, 16, servo3_current);
+    _mav_put_int8_t(buf, 18, servo1_temperature);
+    _mav_put_int8_t(buf, 19, servo2_temperature);
+    _mav_put_int8_t(buf, 20, servo3_temperature);
+    _mav_put_int8_t(buf, 21, extra);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_TOP_DATA, buf, MAVLINK_MSG_ID_TOP_DATA_MIN_LEN, MAVLINK_MSG_ID_TOP_DATA_LEN, MAVLINK_MSG_ID_TOP_DATA_CRC);
 #else
     mavlink_top_data_t *packet = (mavlink_top_data_t *)msgbuf;
     packet->main_voltage = main_voltage;
-    packet->servo1_current = servo1_current;
-    packet->servo2_current = servo2_current;
-    packet->servo3_current = servo3_current;
     packet->uC_buck_voltage_5V = uC_buck_voltage_5V;
     packet->converter1_voltage_7V = converter1_voltage_7V;
     packet->converter2_voltage_7V = converter2_voltage_7V;
     packet->converter3_voltage_7V = converter3_voltage_7V;
     packet->converter4_voltage_7V = converter4_voltage_7V;
+    packet->servo1_current = servo1_current;
+    packet->servo2_current = servo2_current;
+    packet->servo3_current = servo3_current;
     packet->servo1_temperature = servo1_temperature;
     packet->servo2_temperature = servo2_temperature;
     packet->servo3_temperature = servo3_temperature;
@@ -358,9 +358,9 @@ static inline void mavlink_msg_top_data_send_buf(mavlink_message_t *msgbuf, mavl
  *
  * @return [V] main voltage
  */
-static inline uint16_t mavlink_msg_top_data_get_main_voltage(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_main_voltage(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint16_t(msg,  0);
+    return _MAV_RETURN_int16_t(msg,  0);
 }
 
 /**
@@ -368,9 +368,9 @@ static inline uint16_t mavlink_msg_top_data_get_main_voltage(const mavlink_messa
  *
  * @return [V] microcontroller 5v buck
  */
-static inline uint8_t mavlink_msg_top_data_get_uC_buck_voltage_5V(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_uC_buck_voltage_5V(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  8);
+    return _MAV_RETURN_int16_t(msg,  2);
 }
 
 /**
@@ -378,9 +378,9 @@ static inline uint8_t mavlink_msg_top_data_get_uC_buck_voltage_5V(const mavlink_
  *
  * @return [V] converter 1 voltage
  */
-static inline uint8_t mavlink_msg_top_data_get_converter1_voltage_7V(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_converter1_voltage_7V(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  9);
+    return _MAV_RETURN_int16_t(msg,  4);
 }
 
 /**
@@ -388,9 +388,9 @@ static inline uint8_t mavlink_msg_top_data_get_converter1_voltage_7V(const mavli
  *
  * @return [V] converter 2 voltage
  */
-static inline uint8_t mavlink_msg_top_data_get_converter2_voltage_7V(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_converter2_voltage_7V(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  10);
+    return _MAV_RETURN_int16_t(msg,  6);
 }
 
 /**
@@ -398,9 +398,9 @@ static inline uint8_t mavlink_msg_top_data_get_converter2_voltage_7V(const mavli
  *
  * @return [V] converter 3 voltage
  */
-static inline uint8_t mavlink_msg_top_data_get_converter3_voltage_7V(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_converter3_voltage_7V(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  11);
+    return _MAV_RETURN_int16_t(msg,  8);
 }
 
 /**
@@ -408,9 +408,9 @@ static inline uint8_t mavlink_msg_top_data_get_converter3_voltage_7V(const mavli
  *
  * @return [V] converter 4 voltage
  */
-static inline uint8_t mavlink_msg_top_data_get_converter4_voltage_7V(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_converter4_voltage_7V(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  12);
+    return _MAV_RETURN_int16_t(msg,  10);
 }
 
 /**
@@ -418,9 +418,9 @@ static inline uint8_t mavlink_msg_top_data_get_converter4_voltage_7V(const mavli
  *
  * @return [mA] servo1 current
  */
-static inline uint16_t mavlink_msg_top_data_get_servo1_current(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_servo1_current(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint16_t(msg,  2);
+    return _MAV_RETURN_int16_t(msg,  12);
 }
 
 /**
@@ -428,9 +428,9 @@ static inline uint16_t mavlink_msg_top_data_get_servo1_current(const mavlink_mes
  *
  * @return [mA] servo2 current
  */
-static inline uint16_t mavlink_msg_top_data_get_servo2_current(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_servo2_current(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint16_t(msg,  4);
+    return _MAV_RETURN_int16_t(msg,  14);
 }
 
 /**
@@ -438,9 +438,9 @@ static inline uint16_t mavlink_msg_top_data_get_servo2_current(const mavlink_mes
  *
  * @return [mA] servo3 current
  */
-static inline uint16_t mavlink_msg_top_data_get_servo3_current(const mavlink_message_t* msg)
+static inline int16_t mavlink_msg_top_data_get_servo3_current(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint16_t(msg,  6);
+    return _MAV_RETURN_int16_t(msg,  16);
 }
 
 /**
@@ -448,9 +448,9 @@ static inline uint16_t mavlink_msg_top_data_get_servo3_current(const mavlink_mes
  *
  * @return [C] servo1 temperature
  */
-static inline uint8_t mavlink_msg_top_data_get_servo1_temperature(const mavlink_message_t* msg)
+static inline int8_t mavlink_msg_top_data_get_servo1_temperature(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  13);
+    return _MAV_RETURN_int8_t(msg,  18);
 }
 
 /**
@@ -458,9 +458,9 @@ static inline uint8_t mavlink_msg_top_data_get_servo1_temperature(const mavlink_
  *
  * @return [C] servo2 temperature
  */
-static inline uint8_t mavlink_msg_top_data_get_servo2_temperature(const mavlink_message_t* msg)
+static inline int8_t mavlink_msg_top_data_get_servo2_temperature(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  14);
+    return _MAV_RETURN_int8_t(msg,  19);
 }
 
 /**
@@ -468,9 +468,9 @@ static inline uint8_t mavlink_msg_top_data_get_servo2_temperature(const mavlink_
  *
  * @return [C] servo3_temperature
  */
-static inline uint8_t mavlink_msg_top_data_get_servo3_temperature(const mavlink_message_t* msg)
+static inline int8_t mavlink_msg_top_data_get_servo3_temperature(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  15);
+    return _MAV_RETURN_int8_t(msg,  20);
 }
 
 /**
@@ -478,9 +478,9 @@ static inline uint8_t mavlink_msg_top_data_get_servo3_temperature(const mavlink_
  *
  * @return  mid_servo3_current
  */
-static inline uint8_t mavlink_msg_top_data_get_extra(const mavlink_message_t* msg)
+static inline int8_t mavlink_msg_top_data_get_extra(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  16);
+    return _MAV_RETURN_int8_t(msg,  21);
 }
 
 /**
@@ -493,14 +493,14 @@ static inline void mavlink_msg_top_data_decode(const mavlink_message_t* msg, mav
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     top_data->main_voltage = mavlink_msg_top_data_get_main_voltage(msg);
-    top_data->servo1_current = mavlink_msg_top_data_get_servo1_current(msg);
-    top_data->servo2_current = mavlink_msg_top_data_get_servo2_current(msg);
-    top_data->servo3_current = mavlink_msg_top_data_get_servo3_current(msg);
     top_data->uC_buck_voltage_5V = mavlink_msg_top_data_get_uC_buck_voltage_5V(msg);
     top_data->converter1_voltage_7V = mavlink_msg_top_data_get_converter1_voltage_7V(msg);
     top_data->converter2_voltage_7V = mavlink_msg_top_data_get_converter2_voltage_7V(msg);
     top_data->converter3_voltage_7V = mavlink_msg_top_data_get_converter3_voltage_7V(msg);
     top_data->converter4_voltage_7V = mavlink_msg_top_data_get_converter4_voltage_7V(msg);
+    top_data->servo1_current = mavlink_msg_top_data_get_servo1_current(msg);
+    top_data->servo2_current = mavlink_msg_top_data_get_servo2_current(msg);
+    top_data->servo3_current = mavlink_msg_top_data_get_servo3_current(msg);
     top_data->servo1_temperature = mavlink_msg_top_data_get_servo1_temperature(msg);
     top_data->servo2_temperature = mavlink_msg_top_data_get_servo2_temperature(msg);
     top_data->servo3_temperature = mavlink_msg_top_data_get_servo3_temperature(msg);
