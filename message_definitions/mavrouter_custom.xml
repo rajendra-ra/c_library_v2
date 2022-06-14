@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<mavlink>
+  <version>3</version>
+  <enums>
+        <enum name="ROUTER_ACTIVE_CHANNEL">
+            <description>List of active channels</description>
+            <entry value="0" name="ROUTER_ACTIVE_CHANNEL_NONE">
+                <description>No active channels i.e all channels are dead</description>
+            </entry>
+            <entry value="1" name="ROUTER_ACTIVE_CHANNEL_ONE">
+                <description>Channel 1 active</description>
+            </entry>
+            <entry value="2" name="ROUTER_ACTIVE_CHANNEL_TWO">
+                <description>Channel 2 active</description>
+            </entry>
+            <entry value="4" name="ROUTER_ACTIVE_CHANNEL_THREE">
+                <description>Channel 3 active</description>
+            </entry>
+            <entry value="8" name="ROUTER_ACTIVE_CHANNEL_FOUR">
+                <description>Channel 4 active</description>
+            </entry>
+            <entry value="16" name="ROUTER_ACTIVE_CHANNEL_FIVE">
+                <description>Channel 5 active</description>
+            </entry>
+            <entry value="32" name="ROUTER_ACTIVE_CHANNEL_SIX">
+                <description>Channel 6 active</description>
+            </entry>
+            <entry value="64" name="ROUTER_ACTIVE_CHANNEL_SEVEN">
+                <description>Channel 7 active</description>
+            </entry>
+            <entry value="128" name="ROUTER_ACTIVE_CHANNEL_EIGHT">
+                <description>Channel 8 active</description>
+            </entry>
+        </enum>
+    </enums>
+
+
+  <messages>
+    <message id="11075" name="ROUTER_CHANNEL_STATUS">
+        <description>Gives status information about the mavlink channels connected to the router</description>
+        <field name="Channel_id" type="uint8_t">Current channel in use </field>
+        <field name="channel_active" type="uint8_t">Bitmask of active channels</field>
+        <field name="total_channels" type="uint8_t">Number of physical channels connected(max 8)</field>
+    </message>
+</messages>
+</mavlink>
