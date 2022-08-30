@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<mavlink>
+  <version>3</version>
+      <enums>
+        <enum name="DLB_ERROR_CODE">
+            <description>Datalogger board error codes</description>
+            <entry value="2001" name="DLB_ADC_FAILURE">
+                <description>Datalogger adc failure</description>
+            </entry>
+            <entry value="2002" name="DLB_SD_MOUNT_FAILURE">
+                <description>Datalogger SD card mount unsuccessful</description>
+            </entry>
+            <entry value="5001" name="DLB_SD_LSTLG_NP">
+                <description>Datalogger lastlog file not present</description>
+            </entry>
+            <entry value="3001" name="DLB_SD_LSTLG_COR">
+                <description>Datalogger lastlog file corrupted</description>
+            </entry>
+            <entry value="3002" name="DLB_RTC_FAILURE">
+                <description>Datalogger RTC not working</description>
+            </entry>
+            <entry value="4001" name="DLB_TIMESTAMP_LOW">
+                <description>Datalogger timestamp is below a predetermined value</description>
+            </entry>
+            <entry value="3003" name="DLB_CHT_TEMP1_FAIL">
+                <description>Datalogger engine temperature sensor 1 not working</description>
+            </entry>
+            <entry value="3004" name="DLB_CHT_TEMP2_FAIL">
+                <description>Datalogger engine temperature sensor 2 not working</description>
+            </entry>
+            <entry value="3005" name="DLB_UNKNOWN_ERR">
+                <description>Datalogger unknown error</description>
+            </entry>
+            <entry value="2003" name="DLB_ADC1_FAIL">
+                <description>Datalogger failure of ADC connected to MUX 1</description>
+            </entry>
+            <entry value="2004" name="DLB_ADC2_FAIL">
+                <description>Datalogger failure of ADC connected to MUX 2</description>
+            </entry>
+            <entry value="3006" name="DLB_IMU1_FAIL">
+                <description>Datalogger IMU1 failed to initalize</description>
+            </entry>
+            <entry value="3007" name="DLB_IMU2_FAIL">
+                <description>Datalogger IMU2 failed to initalize</description>
+            </entry>
+            <entry value="3008" name="DLB_SD_FILE_OPEN_ERR">
+                <description>Datalogger failed to open file on SD card</description>
+            </entry>
+            <entry value="3009" name="DLB_SD_FILE_WRITE_ERR">
+                <description>Datalogger failed to write to file on SD card</description>
+            </entry>
+          </enum>
+        <enum name="PS_ERROR_CODE">
+            <description>Power system data error codes</description>
+            <entry value="2005" name="PS_VSEN_BUCK1_UV">
+                <description>Critical: Servo converter 1 undervolt</description>
+            </entry>
+            <entry value="2006" name="PS_VSEN_BUCK1_OV">
+                <description>Critical: Servo converter 1 overvolt</description>
+            </entry>
+            <entry value="2007" name="PS_VSEN_BUCK2_UV">
+                <description>Critical: Servo converter 2 undervolt</description>
+            </entry>
+            <entry value="2008" name="PS_VSEN_BUCK2_OV">
+                <description>Critical: Servo converter 2 overvolt</description>
+            </entry>
+            <entry value="2009" name="PS_VSEN_BUCK3_UV">
+                <description>Critical: Servo converter 3 undervolt</description>
+            </entry>
+            <entry value="2010" name="PS_VSEN_BUCK3_OV">
+                <description>Critical: Servo converter 3 overvolt</description>
+            </entry>
+            <entry value="2011" name="PS_VSEN_BUCK4_UV">
+                <description>Critical: Servo converter 4 undervolt</description>
+            </entry>
+            <entry value="2012" name="PS_VSEN_BUCK4_OV">
+                <description>Critical: Servo converter 4 overvolt</description>
+            </entry>
+            <entry value="2013" name="PS_VSEN_BUCK6_UV">
+                <description>Critical: Servo converter 6 undervolt</description>
+            </entry>
+            <entry value="2014" name="PS_VSEN_BUCK6_OV">
+                <description>Critical: Servo converter 6 overvolt</description>
+            </entry>
+            <entry value="2015" name="PS_VSEN_BUCK_S_AUX_UV">
+                <description>Critical Backup failure: S-Aux converter  undervolt</description>
+            </entry>
+            <entry value="2016" name="PS_VSEN_BUCK_S_AUX_OV">
+                <description>Critical Backup failure: S-Aux converter  overvolt</description>
+            </entry>
+            <entry value="5002" name="PS_ISEN_S1_OC">
+                <description>Warning: Servo converter 1 overcurrent </description>
+            </entry>
+            <entry value="5003" name="PS_ISEN_S2_OC">
+                <description>Warning: Servo converter 2 overcurrent </description>
+            </entry>
+            <entry value="5004" name="PS_ISEN_S3_OC">
+                <description>Warning: Servo converter 3 overcurrent </description>
+            </entry>
+            <entry value="5005" name="PS_ISEN_S4_OC">
+                <description>Warning: Servo converter 4 overcurrent </description>
+            </entry>
+            <entry value="5006" name="PS_ISEN_S6_OC">
+                <description>Warning: Servo converter 6 overcurrent </description>
+            </entry>
+            <entry value="5007" name="PS_ISEN_S_AUX_OC">
+                <description>Warning: S-Aux overcurrent </description>
+            </entry>
+            <entry value="5008" name="PS_S1_TEMP_HIGH">
+                <description>Warning: Servo 1 temperature high </description>
+            </entry>
+            <entry value="5009" name="PS_S1_TEMP_LOW">
+                <description>Warning: Servo 1 temperature low </description>
+            </entry>
+            <entry value="5010" name="PS_S2_TEMP_HIGH">
+                <description>Warning: Servo 2 temperature high </description>
+            </entry>
+            <entry value="5011" name="PS_S2_TEMP_LOW">
+                <description>Warning: Servo 2 temperature low </description>
+            </entry>
+            <entry value="5012" name="PS_S3_TEMP_HIGH">
+                <description>Warning: Servo 3 temperature high </description>
+            </entry>
+            <entry value="5013" name="PS_S3_TEMP_LOW">
+                <description>Warning: Servo 3 temperature low </description>
+            </entry>
+            <entry value="5014" name="PS_S4_TEMP_HIGH">
+                <description>Warning: Servo 4 temperature high </description>
+            </entry>
+            <entry value="5015" name="PS_S4_TEMP_LOW">
+                <description>Warning: Servo 4 temperature low </description>
+            </entry>
+            <entry value="5016" name="PS_S5_TEMP_HIGH">
+                <description>Warning: Servo 5 temperature high </description>
+            </entry>
+            <entry value="5017" name="PS_S5_TEMP_LOW">
+                <description>Warning: Servo 5 temperature low </description>
+            </entry>
+            <entry value="5018" name="PS_S6_TEMP_HIGH">
+                <description>Warning: Servo 6 temperature high </description>
+            </entry>
+            <entry value="5019" name="PS_S6_TEMP_LOW">
+                <description>Warning: Servo 6 temperature low </description>
+            </entry>
+            <entry value="2017" name="PS_VSEN_OSB_UV">
+                <description>Critical: Onshore battery undervolt</description>
+            </entry>
+            <entry value="2018" name="PS_VSEN_OSB_OV">
+                <description>Critical: Onshore battery overvolt</description>
+            </entry>
+            <entry value="2019" name="PS_VSEN_OBB_UV">
+                <description>Critical: Onboard battery undervolt</description>
+            </entry>
+            <entry value="2020" name="PS_VSEN_OBB_OV">
+                <description>Critical: Onboard battery overvolt</description>
+            </entry>
+            <entry value="5020" name="PS_ISENS_OSB_OC">
+                <description>Warning: Onshore battery overcurrent </description>
+            </entry>
+            <entry value="5021" name="PS_ISENS_OBB_OC">
+                <description>Warning: Onboard battery overcurrent </description>
+            </entry>
+            <entry value="5022" name="PS_OSB_TEMP_LOW">
+                <description>Warning: Onshore battery temperature low </description>
+            </entry>
+            <entry value="5023" name="PS_OSB_TEMP_HIGH">
+                <description>Warning: Onshore battery temperature high </description>
+            </entry>
+            <entry value="5024" name="PS_OBB_TEMP_LOW">
+                <description>Warning: Onboard battery temperature low </description>
+            </entry>
+            <entry value="5025" name="PS_OBB_TEMP_HIGH">
+                <description>Warning: Onboard battery temperature high </description>
+            </entry>
+            <entry value="2021" name="PS_VSEN_28IPS_UV">
+                <description>Critical: IPS 28V output undervolt</description>
+            </entry>
+            <entry value="2022" name="PS_VSEN_28IPS_OV">
+                <description>Critical: IPS 28V output overvolt</description>
+            </entry>
+            <entry value="2023" name="PS_VSEN_12IPS_UV">
+                <description>Critical: IPS 12V output undervolt</description>
+            </entry>
+            <entry value="2024" name="PS_VSEN_12IPS_OV">
+                <description>Critical: IPS 12V output overvolt</description>
+            </entry>
+            <entry value="2025" name="PS_VSEN_5IPS_UV">
+                <description>Critical: IPS 5V output undervolt</description>
+            </entry>
+            <entry value="2026" name="PS_VSEN_5IPS_OV">
+                <description>Critical: IPS 5V output overvolt</description>
+            </entry>
+            <entry value="5026" name="PS_ISEN_28IPS_OC">
+                <description>Warning: IPS 28V output overcurrent </description>
+            </entry>
+            <entry value="5027" name="PS_ISEN_12IPS_OC">
+                <description>Warning: IPS 12V output overcurrent </description>
+            </entry>
+            <entry value="5028" name="PS_ISEN_5IPS_OC">
+                <description>Warning: IPS 5V output overcurrent </description>
+            </entry>
+            <entry value="5029" name="PS_PMU_TEMP_LOW">
+                <description>Warning: IPS temperature low </description>
+            </entry>
+            <entry value="5030" name="PS_PMU_TEMP_HIGH">
+                <description>Warning: IPS temperature high </description>
+            </entry>
+            <entry value="5031" name="PS_SG_TEMP_LOW">
+                <description>Warning: SG temperature low </description>
+            </entry>
+            <entry value="5032" name="PS_SG_TEMP_HIGH">
+                <description>Warning: SG temperature high </description>
+            </entry>
+            <entry value="2027" name="PS_AUX_PIX_VOLT_UV">
+                <description>Critical Backup failure: Auxillary pixhawk voltage undervolt</description>
+            </entry>
+            <entry value="2028" name="PS_AUX_PIX_VOLT_OV">
+                <description>Critical Backup failure: Auxillary pixhawk voltage overvolt</description>
+            </entry>
+            <entry value="2029" name="PS_STM_IN_VOLT_UV">
+                <description>Critical:STM microcontroller input voltage undervolt</description>
+            </entry>
+            <entry value="2030" name="PS_STM_IN_VOLT_OV">
+                <description>Critical:STM microcontroller input voltage overvolt</description>
+            </entry>
+            <entry value="5033" name="PS_ENG_TEMP1_LOW">
+                <description>Warning:Engine temperature 1 low </description>
+            </entry>
+            <entry value="5034" name="PS_ENG_TEMP1_HIGH">
+                <description>Warning:Engine temperature 1 high </description>
+            </entry>
+            <entry value="5035" name="PS_ENG_TEMP2_LOW">
+                <description>Warning:Engine temperature 2 low </description>
+            </entry>
+            <entry value="5036" name="PS_ENG_TEMP2_HIGH">
+                <description>Warning:Engine temperature 2 high </description>
+            </entry>
+         </enum>
+        </enums>
+  <messages>
+    <message id="11072" name="R10_SERVO_DATA">
+      <description>Contains voltage, current and temperature sensor data of servo converters obtained through the datalogger board</description>
+      <field name="TIME_US" type="uint64_t">Timestamp in micro seconds</field>
+      <field name="VSEN_BUCK1" type="uint16_t">Servo1 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK2" type="uint16_t">Servo2 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK3" type="uint16_t">Servo3 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK4" type="uint16_t">Servo4 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK6" type="uint16_t">Servo6 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK_S_AUX" type="uint16_t">S-Aux converter voltage sensor reading</field>
+      <field name="ISEN_S1" type="uint16_t">Servo1 current sensor reading</field>
+      <field name="ISEN_S2" type="uint16_t">Servo2 current sensor reading</field>
+      <field name="ISEN_S3" type="uint16_t">Servo3 current sensor reading</field>
+      <field name="ISEN_S4" type="uint16_t">Servo4 current sensor reading</field>
+      <field name="ISEN_S6" type="uint16_t">Servo6 current sensor reading</field>
+      <field name="ISEN_S_AUX" type="uint16_t">S-Aux current sensor reading</field>
+      <field name="S1_TEMP" type="uint8_t">Servo1 Temperature sensor reading</field>
+      <field name="S2_TEMP" type="uint8_t">Servo2 Temperature sensor reading</field>
+      <field name="S3_TEMP" type="uint8_t">Servo3 Temperature sensor reading</field>
+      <field name="S4_TEMP" type="uint8_t">Servo4 Temperature sensor reading</field>
+      <field name="S5_TEMP" type="uint8_t">Servo5 Temperature sensor reading</field>
+      <field name="S6_TEMP" type="uint8_t">Servo6 Temperature sensor reading</field>
+
+    </message>
+
+    <message id="11073" name="R10_IPS_DATA">
+      <description>Contains onboard and onshore batteries' voltage,current and temperature data obtained through datalogger board</description>
+      <field name="TIME_US" type="uint64_t">Timestamp in micro seconds</field>
+      <field name="VSEN_28IPS" type="uint16_t">IPS 28V output voltage reading</field>
+      <field name="VSEN_12IPS" type="uint16_t">IPS 12V output voltage reading</field>
+      <field name="VSEN_5IPS" type="uint16_t">IPS 5V output voltage reading</field>
+      <field name="ISEN_28IPS" type="uint16_t">IPS 28V output current reading</field>
+      <field name="ISEN_12IPS" type="uint16_t">IPS 12V output current reading</field>
+      <field name="ISEN_5IPS" type="uint16_t">IPS 5V output current reading</field>
+      <field name="PMU_TEMP" type="uint16_t">IPS unit temperature</field>
+      <field name="SG_TEMP" type="uint16_t">SG temperature</field>
+    </message>
+
+    <message id="11074" name="R10_BAT_DATA">
+      <description>Contains onboard and onshore batteries' voltage, current and temperature data obtained through datalogger board</description>
+      <field name="TIME_US" type="uint64_t">Timestamp in micro seconds</field>
+      <field name="VSEN_OSB" type="uint16_t">Onshore battery voltage</field>
+      <field name="VSEN_OBB" type="uint16_t">Onboard battery voltage</field>
+      <field name="ISENS_OSB" type="uint16_t">Onshore battery current</field>
+      <field name="ISENS_OBB" type="uint16_t">Onboard battery current</field>
+      <field name="OSB_TEMP" type="uint8_t">Onshore battery temperature</field>
+      <field name="OBB_TEMP" type="uint8_t">Onboard battery temperature</field>
+
+    </message>
+    <message id="11075" name="R10_OTH_DATA">
+      <description>Contains engine temperature and other sensor data sent by the datalogger board.</description>
+      <field name="TIME_US" type="uint64_t">Timestamp in micro seconds</field>
+      <field name="AUX_PIX_VOLT" type="uint16_t">5V PMU voltage</field>
+      <field name="STM_IN_VOLT" type="uint16_t">STM input voltage</field>
+      <field name="ENG_TEMP1" type="uint8_t">Engine temperature 1</field>
+      <field name="ENG_TEMP2" type="uint8_t">Engine temperature 2</field>
+      <field name="EX_MUX_PIN1" type="uint16_t">Extra mux input pin 1</field>
+      <field name="EX_MUX_PIN2" type="uint16_t">Extra mux input pin 2</field>
+    </message>
+    <message id = "11076" name="R10_DLB_ERROR">
+    <description> Sends different errors reported by Datalogger board in it's functioning as error codes</description>
+    <field name="TIME_US" type="uint64_t">Timestamp in microseconds</field>
+    <field name="ERROR_CODE" type="uint16_t" enum = "DLB_ERROR_CODE">Datalogger Board Error Code</field>
+    </message>
+    <message id = "11077" name="R10_PSDATA_ERROR">
+    <description> Error codes reported by Datalogger board for erros found in power system and servo converter sensor data</description>
+    <field name="TIME_US" type="uint64_t">Timestamp in microseconds</field>
+    <field name="ERROR_CODE" type="uint16_t" enum = "DLB_ERROR_CODE">Power system data error code</field>
+    <field name="SENSOR_VALUE" type="uint16_t">Sensor reading of the sensor for which error has occured</field>
+    </message>
+  </messages>
+
+
+  
+</mavlink>
