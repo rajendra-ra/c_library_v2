@@ -11,7 +11,7 @@
 #endif
 
 #undef MAVLINK_THIS_XML_IDX
-#define MAVLINK_THIS_XML_IDX 0
+#define MAVLINK_THIS_XML_IDX 9
 
 #ifdef __cplusplus
 extern "C" {
@@ -53,7 +53,7 @@ extern "C" {
 
 
 #undef MAVLINK_THIS_XML_IDX
-#define MAVLINK_THIS_XML_IDX 0
+#define MAVLINK_THIS_XML_IDX 9
 
 #if MAVLINK_THIS_XML_IDX == MAVLINK_PRIMARY_XML_IDX
 # define MAVLINK_MESSAGE_INFO {MAVLINK_MESSAGE_INFO_TEST_TYPES}
