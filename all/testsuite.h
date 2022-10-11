@@ -16,9 +16,7 @@ static void mavlink_test_ardupilotmega(uint8_t, uint8_t, mavlink_message_t *last
 static void mavlink_test_common(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_icarous(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_minimal(uint8_t, uint8_t, mavlink_message_t *last_msg);
-static void mavlink_test_python_array_test(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_standard(uint8_t, uint8_t, mavlink_message_t *last_msg);
-static void mavlink_test_test(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_ualberta(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_uAvionix(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_all(uint8_t, uint8_t, mavlink_message_t *last_msg);
@@ -29,9 +27,7 @@ static void mavlink_test_all(uint8_t system_id, uint8_t component_id, mavlink_me
     mavlink_test_common(system_id, component_id, last_msg);
     mavlink_test_icarous(system_id, component_id, last_msg);
     mavlink_test_minimal(system_id, component_id, last_msg);
-    mavlink_test_python_array_test(system_id, component_id, last_msg);
     mavlink_test_standard(system_id, component_id, last_msg);
-    mavlink_test_test(system_id, component_id, last_msg);
     mavlink_test_ualberta(system_id, component_id, last_msg);
     mavlink_test_uAvionix(system_id, component_id, last_msg);
     mavlink_test_all(system_id, component_id, last_msg);
@@ -42,9 +38,7 @@ static void mavlink_test_all(uint8_t system_id, uint8_t component_id, mavlink_me
 #include "../common/testsuite.h"
 #include "../icarous/testsuite.h"
 #include "../minimal/testsuite.h"
-#include "../python_array_test/testsuite.h"
 #include "../standard/testsuite.h"
-#include "../test/testsuite.h"
 #include "../ualberta/testsuite.h"
 #include "../uAvionix/testsuite.h"
 
