@@ -50,7 +50,7 @@
         <description>Datalogger failed to write to file on SD card</description>
       </entry>
     </enum>
-    <enum name="PS_ERROR_CODE">
+    <!-- <enum name="PS_ERROR_CODE">
       <description>Power system data error codes</description>
       <entry value="2005" name="PS_VSEN_BUCK1_UV">
         <description>Critical: Servo converter 1 undervolt</description>
@@ -235,7 +235,7 @@
       <entry value="5036" name="PS_ENG_TEMP2_HIGH">
         <description>Warning:Engine temperature 2 high </description>
       </entry>
-    </enum>
+    </enum> -->
   </enums>
   <messages>
     <message id="11072" name="R10_SERVO_DATA">
@@ -297,11 +297,56 @@
       <field name="TIME_US" type="uint64_t">Timestamp in microseconds</field>
       <field name="ERROR_CODE" type="uint16_t" enum="DLB_ERROR_CODE">Datalogger Board Error Code</field>
     </message>
-    <message id="11077" name="R10_PSDATA_ERROR">
-      <description> Error codes reported by Datalogger board for erros found in power system and servo converter sensor data</description>
+    <message id="11077" name="R10_VSENS_ERR">
+      <description> Bitmask of voltage sensor errors reported by the dlb board and the respective sensor values</description>
       <field name="TIME_US" type="uint64_t">Timestamp in microseconds</field>
-      <field name="ERROR_CODE" type="uint16_t" enum="DLB_ERROR_CODE">Power system data error code</field>
-      <field name="SENSOR_VALUE" type="uint16_t">Sensor reading of the sensor for which error has occured</field>
+      <field name="error_bitmask" type="uint16_t">Bitmask  for sensors crossing limits</field>
+      <field name="VSEN_BUCK1" type="uint16_t">Servo1 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK2" type="uint16_t">Servo2 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK3" type="uint16_t">Servo3 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK4" type="uint16_t">Servo4 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK6" type="uint16_t">Servo6 converter voltage sensor reading</field>
+      <field name="VSEN_BUCK_S_AUX" type="uint16_t">S-Aux converter voltage sensor reading</field>
+      <field name="VSEN_28IPS" type="uint16_t">IPS 28V output voltage reading</field>
+      <field name="VSEN_12IPS" type="uint16_t">IPS 12V output voltage reading</field>
+      <field name="VSEN_5IPS" type="uint16_t">IPS 5V output voltage reading</field>
+      <field name="VSEN_OSB" type="uint16_t">Onshore battery voltage</field>
+      <field name="VSEN_OBB" type="uint16_t">Onboard battery voltage</field>
+      <field name="AUX_PIX_VOLT" type="uint16_t">5V PMU voltage</field>
+      <field name="STM_IN_VOLT" type="uint16_t">STM input voltage</field>
+    </message>
+    <message id="11079" name="R10_ISENS_ERR">
+      <description> Bitmask of current sensor errors reported by the dlb board and the respective sensor values</description>
+      <field name="TIME_US" type="uint64_t">Timestamp in microseconds</field>
+      <field name="error_bitmask" type="uint16_t">Bitmask  for sensors crossing limits</field>
+      <field name="ISEN_S1" type="uint16_t">Servo1 current sensor reading</field>
+      <field name="ISEN_S2" type="uint16_t">Servo2 current sensor reading</field>
+      <field name="ISEN_S3" type="uint16_t">Servo3 current sensor reading</field>
+      <field name="ISEN_S4" type="uint16_t">Servo4 current sensor reading</field>
+      <field name="ISEN_S6" type="uint16_t">Servo6 current sensor reading</field>
+      <field name="ISEN_S_AUX" type="uint16_t">S-Aux current sensor reading</field>
+      <field name="ISEN_28IPS" type="uint16_t">IPS 28V output current reading</field>
+      <field name="ISEN_12IPS" type="uint16_t">IPS 12V output current reading</field>
+      <field name="ISEN_5IPS" type="uint16_t">IPS 5V output current reading</field>
+      <field name="ISENS_OSB" type="uint16_t">Onshore battery current</field>
+      <field name="ISENS_OBB" type="uint16_t">Onboard battery current</field>
+    </message>
+    <message id="11080" name="R10_TEMP_ERR">
+      <description> Bitmask of current sensor errors reported by the dlb board and the respective sensor values</description>
+      <field name="TIME_US" type="uint64_t">Timestamp in microseconds</field>
+      <field name="error_bitmask" type="uint16_t">Bitmask  for sensors crossing limits</field>
+      <field name="S1_TEMP" type="uint8_t">Servo1 Temperature sensor reading</field>
+      <field name="S2_TEMP" type="uint8_t">Servo2 Temperature sensor reading</field>
+      <field name="S3_TEMP" type="uint8_t">Servo3 Temperature sensor reading</field>
+      <field name="S4_TEMP" type="uint8_t">Servo4 Temperature sensor reading</field>
+      <field name="S5_TEMP" type="uint8_t">Servo5 Temperature sensor reading</field>
+      <field name="S6_TEMP" type="uint8_t">Servo6 Temperature sensor reading</field>
+      <field name="PMU_TEMP" type="uint8_t">IPS unit temperature</field>
+      <field name="SG_TEMP" type="uint8_t">SG temperature</field>
+      <field name="OSB_TEMP" type="uint8_t">Onshore battery temperature</field>
+      <field name="OBB_TEMP" type="uint8_t">Onboard battery temperature</field>
+      <field name="ENG_TEMP1" type="uint8_t">Engine temperature 1</field>
+      <field name="ENG_TEMP2" type="uint8_t">Engine temperature 2</field>
     </message>
   </messages>
 </mavlink>
